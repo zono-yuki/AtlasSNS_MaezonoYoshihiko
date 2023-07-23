@@ -41,19 +41,24 @@ class RegisterController extends Controller
 
     public function register(Request $request){
         if($request->isMethod('post')){
+            //リクエストを受け取る。リクエストに内容が入っていたら、ここに入る。
 
             $username = $request->input('username');
             $mail = $request->input('mail');
             $password = $request->input('password');
+            //受け取ったものを変数にはめていく処理
 
             User::create([
                 'username' => $username,
                 'mail' => $mail,
                 'password' => bcrypt($password),
             ]);
+            //変数をデータベースのカラムに登録していく処理
 
             return redirect('added');
+            //登録した後、addedのページにアクセスする処理
         }
+        //リクエストがなかったら（最初は）こっちにくる。新規登録画面を表示する。入力させる画面。
         return view('auth.register');
     }
 

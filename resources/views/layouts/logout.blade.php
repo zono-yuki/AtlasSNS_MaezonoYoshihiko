@@ -1,3 +1,7 @@
+<!-- 最初のログイン画面の表示-->
+<!-- このファイルにlogin.blade.phpの中身が入る感じ -->
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,13 +24,18 @@
   <!--OGPタグ/twitterカード-->
 </head>
 <body>
+
   <header>
     <h1><img src="images/atlas.png"></h1>
     <p>Social Network Service</p>
   </header>
+
   <div id="container">
     @yield('content')
   </div>
+  <!-- ここにlogin.blade.phpのデータが入る。-->
+
+
   <script src="JavaScriptファイルのURL"></script>
   <script src="JavaScriptファイルのURL"></script>
 </body>

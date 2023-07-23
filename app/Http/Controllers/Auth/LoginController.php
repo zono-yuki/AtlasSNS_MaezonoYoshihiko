@@ -22,6 +22,7 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+
     /**
      * Where to redirect users after login.
      *
@@ -39,6 +40,8 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+
+    //  /loginのURLのとき
     public function login(Request $request){
         if($request->isMethod('post')){
 
@@ -47,8 +50,10 @@ class LoginController extends Controller
             //↓ログイン条件は公開時には消すこと
             if(Auth::attempt($data)){
                 return redirect('/top');
+                //top画面にいく。
             }
         }
         return view("auth.login");
+        //リクエストがなかったらもうログイン画面を表示する。
     }
 }

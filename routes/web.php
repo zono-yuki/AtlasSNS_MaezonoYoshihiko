@@ -31,6 +31,10 @@ Route::post('/added', 'Auth\RegisterController@added');
 
 //ログイン中のページ
 Route::get('/top','PostsController@index');
+//追加/////////最初に追加    post/top//////////////////////////////////////////////////////
+Route::post('/top','PostsController@index');
+
+
 
 Route::get('/profile','UsersController@profile');
 
