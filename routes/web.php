@@ -23,8 +23,12 @@
 Route::get('/login', 'Auth\LoginController@login');
 Route::post('/login', 'Auth\LoginController@login');
 
-Route::get('/register', 'Auth\RegisterController@register');
-Route::post('/register', 'Auth\RegisterController@register');
+
+//新規ユーザー登録画面
+Route::get('/register', 'Auth\RegisterController@registerView'); //ルーティング変更 @registerから@registerViewに変更しています。1番最初の新規ユーザー画面を表示するところ。
+Route::post('/register', 'Auth\RegisterController@register');//入力したデータをpostでうけとるところ。
+
+
 
 Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
