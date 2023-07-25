@@ -68,19 +68,20 @@ class RegisterController extends Controller
             ]);
             //変数をデータベースのカラムに登録していく処理
 
-            return redirect('added');
-            //登録した後、addedのページにアクセスする処理
+            $input = $request->session()->put('username',$username);
+            return redirect('added')->with($input);
+            //登録した後、addedのページにアクセスする処理,セッションを使い新規登録したユーザー名を表示させる。セッションに一時保存しそれを表示する感じ。
             //ここまでがpostの場合の処理
         }
 
         //リクエストがなかったら（最初は）こっちにくる。新規登録用のviewページを表示する。入力させる画面。
         //ここがgetの場合の処理。registerViewメソッドを作ったのでとりあえず、コメントアウト
-        
+
 
         $validated = $request->validated();
     }
 
-    public function added()
+    public function added()//新規登録完了画面を表示する処理
     {
         return view('auth.added');
     }
