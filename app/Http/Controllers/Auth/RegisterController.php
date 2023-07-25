@@ -75,7 +75,7 @@ class RegisterController extends Controller
 
         //リクエストがなかったら（最初は）こっちにくる。新規登録用のviewページを表示する。入力させる画面。
         //ここがgetの場合の処理。registerViewメソッドを作ったのでとりあえず、コメントアウト
-        // return view('auth.register');
+        
 
         $validated = $request->validated();
     }
