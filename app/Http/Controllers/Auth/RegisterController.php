@@ -43,6 +43,10 @@ class RegisterController extends Controller
     }
 ///////////////////////////////////////////////////////////////////////////////////////////
 
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+
     public function registerView(Request $request){
     //追加 新規登録画面を表示する。
         return view('auth.register');
@@ -85,6 +89,12 @@ class RegisterController extends Controller
     {
         return view('auth.added');
     }
+
+
+
+
+
+
 
 
 
