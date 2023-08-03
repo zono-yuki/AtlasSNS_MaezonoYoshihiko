@@ -43,7 +43,7 @@ class PostsController extends Controller
 
             //ここまでがpostの場合の処理
         }
-
+        $validated = $request->validated();
     }
 
     public function followList(){
