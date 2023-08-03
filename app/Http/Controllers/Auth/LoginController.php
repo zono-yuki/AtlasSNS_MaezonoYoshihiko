@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth; //これを追加したらAuth認証できた
 use Illuminate\Http\Request;
-use Auth;
+// use Auth;
 
 class LoginController extends Controller
 {
@@ -61,6 +62,7 @@ class LoginController extends Controller
     public function logout(Request $request){
         Auth::logout();
         return redirect('/login');
+        //redirectはweb.phpをを通す際に使う。viewはそのままblain.phpを表示する。
         //TOP画面に遷移する
     }
 }

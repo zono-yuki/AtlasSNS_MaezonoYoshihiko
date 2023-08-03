@@ -31,7 +31,7 @@
             <h1><a href="/top"><img src="{{ asset('images/atlas.png') }}"></a></h1>
             <div id="top">
                 <div id="top">
-                    <p>〇〇さん<img src="{{ asset('images/icon1.png') }}"></p>
+                    <p> <?php $user = Auth::user(); ?>{{ $user->username }}さん<img src="{{ asset('images/icon1.png') }}"></p>
 
                     <!-- アコーディオンメニュー作成-->
 
@@ -51,22 +51,23 @@
     <div id="row">
         <div id="container">
             @yield('content')
+            <!-- ここの中身だけfollowlist.php、followerlist.phpでは継承して使う。 -->
         </div>
         <div id="side-bar">
             <div id="confirm">
-                <p>〇〇さんの</p>
+                <p>{{ $user->username }}さんの</p>
                 <div>
                     <p>フォロー数</p>
                     <p>〇〇名</p>
                 </div>
-                <p class="btn"><a href="">フォローリスト</a></p>
+                <p class="btn"><a href="{{ asset('/followList') }}">フォローリスト</a></p>
                 <div>
                     <p>フォロワー数</p>
                     <p>〇〇名</p>
                 </div>
-                <p class="btn"><a href="">フォロワーリスト</a></p>
+                <p class="btn"><a href="{{ asset('/followerList') }}">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="">ユーザー検索</a></p>
+            <p class="btn"><a href="{{ asset('/search') }}">ユーザー検索</a></p>
         </div>
     </div>
     <footer>

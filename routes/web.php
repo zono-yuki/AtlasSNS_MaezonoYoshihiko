@@ -28,7 +28,7 @@ Route::post('/login', 'Auth\LoginController@login');
 
 
 //新規ユーザー登録画面を表示する
-Route::get('/register', 'Auth\RegisterController@registerView'); //ルーティング変更 @registerから@registerViewに変更しています。1番最初の新規ユーザー画面を表示するところ。
+Route::get('/register', 'Auth\RegisterController@registerView'); //新規登録画面の表示
 Route::post('/register', 'Auth\RegisterController@register');//入力したデータをpostでうけとるところ。
 
 
@@ -43,19 +43,28 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 
 
-///////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
 
 
-//ログイン中のページ
-Route::get('/top','PostsController@index');
-//追加/////////最初に追加    post/top//////////////////////////////////////////////////////
-Route::post('/top','PostsController@index');
+//////////////////////ログイン中のページ//////////////////////////////////
+
+Route::group(['middleware' => 'auth'], function (){ //アクセス制限をかける
+
+ //トップページ画面
+   Route::get('/top','PostsController@index');
+   Route::post('/create', 'PostsController@create'); //投稿ボタンを押した時、登録する処理。
 
 
+ //プロフィール画面
+   Route::get('/profile','UsersController@profile');
 
-Route::get('/profile','UsersController@profile');
+ //ユーザー検索画面
+   Route::get('/search','UsersController@search');
 
-Route::get('/search','UsersController@index');
+ //フォローリスト画面
+   Route::get('/followList','PostsController@followList');
 
-Route::get('/follow-list','PostsController@index');
-Route::get('/follower-list','PostsController@index');
+ //フォロワーリスト画面
+   Route::get('/followerList','PostsController@followerList');
+
+});
