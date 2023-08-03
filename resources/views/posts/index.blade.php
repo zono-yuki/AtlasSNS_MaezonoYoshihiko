@@ -19,7 +19,8 @@
 {!! Form::open(['url' => '/create']) !!}
 <label for="comment"></label>
 <textarea id="comment" name="post" cols="100" rows="5" placeholder="投稿内容を入力してください。"></textarea>
-<input type="submit" class="submitbtn">
+<input type="image" src="images/post.png"  class="submit_btn" alt="送信する">
+<!--input要素のtype属性の値にimageを指定すると、画像ボタンを作成することができる。画像ボタンにはalt属性が必須になります。 -->
 
 {!! Form::close() !!}
 <!-- </div>

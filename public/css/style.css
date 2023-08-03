@@ -125,6 +125,14 @@ header{
 
 /* ここまでがアコーディオンメニュー */
 
+
+/* つぶやき送信ボタン */
+.submit_btn{
+  width: 60px;
+  height: auto;
+  border-radius:15px;
+}
+
 /* 投稿画面 */
 /* .content_wrapper{
     width: 1000px;
