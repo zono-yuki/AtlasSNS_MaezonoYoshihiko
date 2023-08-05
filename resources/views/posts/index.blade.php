@@ -23,7 +23,15 @@
 <!--input要素のtype属性の値にimageを指定すると、画像ボタンを作成することができる。画像ボタンにはalt属性が必須になります。 -->
 
 {!! Form::close() !!}
-<!-- </div>
-</div> -->
+
+<!-- 追加  つぶやきを全部表示する処理 -->
+@foreach($posts as $post)
+  <tr>
+   <td> {{ $post-> id }}</td>
+   <td> {{ $post-> post }} </td><br>
+   <td> <a class= "btn btn-primary" href="/post"></a></td>
+  </tr>
+@endforeach
+
 
 @endsection

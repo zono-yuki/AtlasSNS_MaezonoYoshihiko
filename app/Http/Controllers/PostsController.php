@@ -15,8 +15,10 @@ class PostsController extends Controller
         $user = Auth::user(); //ログイン認証しているユーザーの取得
         $username =Auth::user()->username;
 
+        //追加
+        $posts = \DB::table('posts')->get();//テーブルから全データ取得
         //もともとあったやつ
-        return view('posts.index'); // 現在認証しているユーザーを取得
+        return view('posts.index')->with('posts', $posts); // ('View側で指定する変数',代入する変数)
     }
 
     public function create(PostFormRequest $request){
