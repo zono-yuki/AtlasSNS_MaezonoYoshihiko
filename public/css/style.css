@@ -131,6 +131,13 @@ header{
   width: 60px;
   height: auto;
   border-radius:15px;
+  cursor:pointer;
+}
+
+.post_btn{
+  width:30px;
+  height: auto;
+  cursor:pointer;
 }
 
 /* 投稿画面 */
