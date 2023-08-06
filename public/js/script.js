@@ -10,11 +10,15 @@ $('.js-accordion-title').on('click', function () {
 
 //編集モーダル/////////////////////////////////////////////////////////////////////////////
 var modal = document.getElementById("myModal");
-var btn = document.getElementById("openModal");
+var btn = document.getElementById("openModal");//ここがボタン
 var span = document.getElementById("closeModal");
 
-btn.onclick = function() {
+btn.onclick = function() {//ボタンを押した時の処理
+  $("#update_id").val($(this).val());
+// buttonのvalueに入っているidを、#update_idのvalueに入れる。
+
   modal.style.display = "block";
+
 }
 
 span.onclick = function() {

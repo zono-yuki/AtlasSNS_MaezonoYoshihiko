@@ -55,6 +55,18 @@ class PostsController extends Controller
         return redirect('/top');
     }
 
+    // 更新処理 追加
+    public function update(Request $request){
+        //1つ目の処理
+        $id = $request->input('id');
+        $posts = $request->input('post');
+        //2つ目の処理
+        \DB::table('posts')->where('id',$id)->update([
+            'post' => $posts
+        ]);
+        return redirect('/top');
+    }
+
 
     public function followList(){
         return view('follows.followList');

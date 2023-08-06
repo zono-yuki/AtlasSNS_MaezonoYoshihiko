@@ -14,6 +14,8 @@
 </div>
 @endif
 
+
+<!-- 投稿を入力するところ -->
 {!! Form::open(['url' => '/create']) !!}
 <label for="comment"></label>
 <textarea id="comment" name="post" cols="100" rows="5" placeholder="投稿内容を入力してください。"></textarea>
@@ -21,6 +23,8 @@
 <!--input要素のtype属性の値にimageを指定すると、画像ボタンを作成することができる。画像ボタンにはalt属性が必須になります。 -->
 
 {!! Form::close() !!}
+
+
 
 <!-- 追加  つぶやきを全部表示する処理 -->
 @foreach($posts as $post)
@@ -37,9 +41,12 @@
    <!-- 編集ボタン-->
    <li>
       <!-- 編集ボタン押すとモーダル着火-->
-      <button id="openModal">
+      <!-- value="{{ $post ->id}}"でJSにvalueを送る。 -->
+      <!-- data-toggle="modal" data-target="#updateModal" ↓これ-->
+      <button type="button" id="openModal" value="{{ $post ->id}}">
          <input type="image" src="images/edit.png" class="post_btn1" alt="編集ボタン">
       </button>
+      <!-- 明日上にフォームでinput3つつくるとばす-->
    </li>
 
    <!--削除ボタン-->
@@ -57,16 +64,31 @@
 
 
 
+<!--  ///////////////////////////-->
+
+<!-- /////////////////////////// -->
+
+<!-- formを作る、ルート、コントローラーまで完成済み -->
 <div id="myModal" class="modal">
    <div class="modal-content">
-
-      <!-- 更新ボタン -->
-
-      <!-- テキストエリア -->
-      <textarea class="modal-text" name="" id="" cols="50" rows="10">
-      </textarea>
       <!-- 閉じるボタン -->
       <span id="closeModal">閉じる</span>
+
+      <!-- モーダルエリア -->
+      {!! Form::open(['url' => '/post/{id}/update']) !!}
+      <!-- 追加 -->
+      <!-- jsでこのupdate_idに$post->idのvalueが入っている。 -->
+      <input type="hidden" name="id" value="" id="update_id">
+      <textarea class="modal-text" name="post" id="textarea_id" value="" cols="50" rows="10">{{$post->post}}</textarea>
+      <!-- ↑ここにもともとの入れたい。 -->
+
+      <!-- 更新ボタン -->
+      <button id="openModal">
+         <input type="image" src="images/edit.png" class="post_btn1" alt="更新ボタン">
+      </button>
+
+      {!! Form::close() !!}
+
 
    </div>
 </div>

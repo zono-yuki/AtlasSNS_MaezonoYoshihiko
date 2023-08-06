@@ -28,8 +28,8 @@ Route::post('/login', 'Auth\LoginController@login');
 
 
 //新規ユーザー登録画面を表示する
-Route::get('/register', 'Auth\RegisterController@registerView'); //新規登録画面の表示
-Route::post('/register', 'Auth\RegisterController@register');//入力したデータをpostでうけとるところ。
+Route::get('/register', 'Auth\RegisterController@registerView'); //新規登録画面の表示する処理
+Route::post('/register', 'Auth\RegisterController@register');//入力したデータを受けて登録する処理。
 
 
 //登録を完了した画面を表示する
@@ -52,9 +52,10 @@ Route::group(['middleware' => 'auth'], function (){ //アクセス制限をか�
 
  //トップページ画面
    Route::get('/top','PostsController@index');//投稿画面とつぶやき表示まで表示する。
-   Route::post('/create', 'PostsController@create'); //投稿ボタンを押した時、登録する処理。
+   Route::post('/create', 'PostsController@create'); //投稿を登録する処理。
 
    Route::get('/post/{id}/delete','PostsController@delete');//投稿の削除
+   Route::post('/post/{id}/update','PostsController@update');//投稿の更新 追加
 
 
 
