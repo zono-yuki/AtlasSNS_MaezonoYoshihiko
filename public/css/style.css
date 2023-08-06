@@ -134,11 +134,36 @@ header{
   cursor:pointer;
 }
 
-.post_btn{
+/* ホバーしたら、色が変わる */
+.submit_btn:hover{
+  background-color: #666;
+}
+
+/* 投稿編集ボタン */
+.post_btn1{
   width:30px;
   height: auto;
   cursor:pointer;
 }
+
+/* 投稿削除ボタン */
+.post_btn2{
+  width:30px;
+  height: auto;
+  cursor:pointer;
+  transition: .3s;
+}
+/* ホバーしたら、反転し、背景画像が変わる */
+.post_btn2:hover{
+  background-image: url('images/trash-h.png');
+}
+
+ul{
+  display: flex;
+  align-items: center;
+  
+}
+
 
 /* 投稿画面 */
 /* .content_wrapper{

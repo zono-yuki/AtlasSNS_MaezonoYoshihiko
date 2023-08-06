@@ -51,8 +51,13 @@ Route::get('/logout', 'Auth\LoginController@logout');
 Route::group(['middleware' => 'auth'], function (){ //アクセス制限をかける
 
  //トップページ画面
-   Route::get('/top','PostsController@index');
+   Route::get('/top','PostsController@index');//投稿画面とつぶやき表示まで表示する。
    Route::post('/create', 'PostsController@create'); //投稿ボタンを押した時、登録する処理。
+
+   //追加
+  //  Route::get('/post/{{ $post->id}}/update-form', '');
+
+
 
 
  //プロフィール画面
