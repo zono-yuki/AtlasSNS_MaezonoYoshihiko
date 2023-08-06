@@ -54,8 +54,7 @@ Route::group(['middleware' => 'auth'], function (){ //アクセス制限をか�
    Route::get('/top','PostsController@index');//投稿画面とつぶやき表示まで表示する。
    Route::post('/create', 'PostsController@create'); //投稿ボタンを押した時、登録する処理。
 
-   //追加
-  //  Route::get('/post/{{ $post->id}}/update-form', '');
+   Route::get('/post/{id}/delete','PostsController@delete');//投稿の削除
 
 
 

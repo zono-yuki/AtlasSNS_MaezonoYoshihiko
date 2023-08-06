@@ -21,6 +21,7 @@ class PostsController extends Controller
         return view('posts.index')->with('posts', $posts); // ('View側で指定する変数',代入する変数)
     }
 
+    //投稿内容の登録
     public function create(PostFormRequest $request){
         if ($request->isMethod('post')) {
             //リクエストを受け取る。リクエストに内容が入っていたら、ここに入る。postで来ていたらtrueになる。
@@ -47,6 +48,13 @@ class PostsController extends Controller
         }
         $validated = $request->validated();
     }
+
+    // 削除機能
+    public function delete($id){
+        \DB::table('posts')->where('id', $id)->delete();
+        return redirect('/top');
+    }
+
 
     public function followList(){
         return view('follows.followList');

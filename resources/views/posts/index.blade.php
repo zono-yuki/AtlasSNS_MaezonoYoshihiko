@@ -60,11 +60,13 @@
 <div id="myModal" class="modal">
    <div class="modal-content">
 
-      <span id="closeModal">閉じる</span>
+      <!-- 更新ボタン -->
 
+      <!-- テキストエリア -->
       <textarea class="modal-text" name="" id="" cols="50" rows="10">
       </textarea>
-      <!-- 編集ボタン -->
+      <!-- 閉じるボタン -->
+      <span id="closeModal">閉じる</span>
 
    </div>
 </div>
