@@ -21,6 +21,10 @@ header{
     border-left: 1px solid #727272;
 }
 
+button{
+  border: none;
+}
+
 
 
 
@@ -126,6 +130,8 @@ header{
 /* ここまでがアコーディオンメニュー */
 
 
+
+/* ・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・ */
 /* つぶやき送信ボタン */
 .submit_btn{
   width: 60px;
@@ -133,12 +139,11 @@ header{
   border-radius:15px;
   cursor:pointer;
 }
-
-/* ホバーしたら、色が変わる */
+/* ホバーしたら、色が変わる？変わらないから聞く。 */
 .submit_btn:hover{
   background-color: #666;
 }
-
+/* ///////////////////////////////////////////////////////////////////////////////////// */
 /* 投稿編集ボタン */
 .post_btn1{
   width:30px;
@@ -153,33 +158,76 @@ header{
   cursor:pointer;
   transition: .3s;
 }
-/* ホバーしたら、反転し、背景画像が変わる */
+/* ホバーしたら、反転し、背景画像が変わる？変わらないから聞く。*/
 .post_btn2:hover{
   background-image: url('images/trash-h.png');
 }
-
+/* ///////////////////////////////////////////////////////////////////////////////////// */
 ul{
   display: flex;
   align-items: center;
-  
+
 }
 
-
-/* 投稿画面 */
-/* .content_wrapper{
-    width: 1000px;
-    min-height:500px;
-    text-align: center;
+/* ///////////////////////////////////////////////////////////////////////////////////// */
+/* ボタンのデザイン */
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 20px;
+  background: linear-gradient(to right bottom, #FFA500, #FF6347);
+  border-radius: 5px;
+  color: #fff;
+  margin: 20px;
+  transition: 0.3s;
 }
 
-.content2{
-    display: inline-block;
-    text-align: left;
-    width:690px;
-    min-height:500px;
-    background-color: #ffffff;
-    border: 5px solid  #707aff;
-    border-radius: 10px;
-    margin: 20px 0;
-    padding: 10px;
-} */
+.btn:hover {
+  opacity: .3;
+}
+/* ////////////////////////////////////////////////////////////////////////////////////// */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  text-align: center;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px 0 rgba(0,0,0,0.2);
+  background-color: #457b9d;
+  color: white;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-text{
+  font-size: 20px;
+}
+
+#closeModal{
+  cursor:pointer;
+
+}

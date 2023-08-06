@@ -37,16 +37,15 @@
    <!-- 編集ボタン-->
    <li>
       <!-- 編集ボタン押すとモーダル着火-->
-      <a href="/post/{{ $post->id }}/update-form">
+      <button id="openModal">
          <input type="image" src="images/edit.png" class="post_btn1" alt="編集ボタン">
-      </a>
+      </button>
    </li>
 
    <!--削除ボタン-->
    <li>
       <a href="/post/{{ $post->id }}/delete">
-         <input type="image" src="images/trash.png" class="post_btn2" alt="削除ボタン"
-         onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
+         <input type="image" src="images/trash.png" class="post_btn2" alt="削除ボタン" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
       </a>
    </li>
 
@@ -56,4 +55,17 @@
 @endforeach
 
 
+
+
+<div id="myModal" class="modal">
+   <div class="modal-content">
+
+      <span id="closeModal">閉じる</span>
+
+      <textarea class="modal-text" name="" id="" cols="50" rows="10">
+      </textarea>
+      <!-- 編集ボタン -->
+
+   </div>
+</div>
 @endsection
