@@ -14,11 +14,13 @@ var btn = document.getElementById("openModal");//ここがボタン
 var span = document.getElementById("closeModal");
 
 btn.onclick = function() {//ボタンを押した時の処理
-  $("#update_id").val($(this).val());
-// buttonのvalueに入っているidを、#update_idのvalueに入れる。
+  var post_id = $(this).attr('post_id');
+  $('#update_id').val(post_id);//idを受け取る、idをhiddenでcontllorerに渡す。
+  var post = $(this).attr('post');
+  $('#textarea_id').text(post);//投稿している内容を引っ張ってきて表示する
 
   modal.style.display = "block";
-
+  return false;
 }
 
 span.onclick = function() {
@@ -28,5 +30,6 @@ span.onclick = function() {
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+    return false;
   }
 }

@@ -7,12 +7,17 @@
 <!-- これが送られる。クロスサイトリクエストフォージェリを防ぐため。不正なHTTPを送られる攻撃。
     <input type="hidden" name="_token" value="loiuhJKkjhUI664hjgk6jhg6fjg675JHGGOogo">
  -->
+
+ <!-- ユーザー検索フォーム表示-->
 <div>
-  <form action="/search" method="post" class="search-form-001">
+  <form action="/search/" method="post" class="search-form-001">
     @csrf
-    <input type="text" name="keyword" class="form" placeholder="ユーザー名">
+    <input type="search" name="keyword" class="form" placeholder="ユーザー名" value="@if(isset($keyword)){{$keyword}}@endif">
     <input type="image" src="images/search.png" class="search_btn" alt="検索ボタン"></input>
-    <!-- <input type="image" src="images/edit.png" class="post_btn1" alt="編集ボタン"> -->
   </form>
 </div>
+
+@if(!empty($keyword))
+<p>検索ワード：{{$keyword}}</p>
+@endif
 @endsection

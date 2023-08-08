@@ -43,7 +43,7 @@
       <!-- 編集ボタン押すとモーダル着火-->
       <!-- value="{{ $post ->id}}"でJSにvalueを送る。 -->
       <!-- data-toggle="modal" data-target="#updateModal" ↓これ-->
-      <button type="button" id="openModal" value="{{ $post ->id}}">
+      <button type="button" id="openModal" post="{{ $post->post }}" post_id="{{ $post ->id}}">
          <input type="image" src="images/edit.png" class="post_btn1" alt="編集ボタン">
       </button>
       <!-- 明日上にフォームでinput3つつくるとばす-->

@@ -17,7 +17,6 @@ class PostsController extends Controller
 
         //追加
         $posts = \DB::table('posts')->get();//テーブルから全データ取得
-        //もともとあったやつ
         return view('posts.index')->with('posts', $posts); // ('View側で指定する変数',代入する変数)
     }
 
@@ -55,7 +54,7 @@ class PostsController extends Controller
         return redirect('/top');
     }
 
-    // 更新処理 追加
+    // 更新処理
     public function update(Request $request){
         //1つ目の処理
         $id = $request->input('id');
