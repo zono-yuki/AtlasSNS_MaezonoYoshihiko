@@ -13,6 +13,7 @@ class UsersController extends Controller
 
     //ユーザー検索画面を表示させる処理
     public function search(){
+        
         return view('users.search');
     }
 }

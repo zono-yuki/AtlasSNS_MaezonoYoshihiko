@@ -186,6 +186,7 @@ ul{
   opacity: .3;
 }
 /* ////////////////////////////////////////////////////////////////////////////////////// */
+/* 編集モーダル */
 .modal {
   display: none;
   position: fixed;
@@ -230,4 +231,24 @@ ul{
 #closeModal{
   cursor:pointer;
 
+}
+
+/* 検索フォーム//////////////////////////////////////////// */
+
+.search-form-001{
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+
+.form{
+  width:200px;
+  height: 30px;
+}
+
+.search_btn{
+ margin-left: 10px;
+ height: 38px;
+ border-radius: 7px;
+ cursor: pointer;
 }
