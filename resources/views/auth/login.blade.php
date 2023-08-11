@@ -5,24 +5,33 @@
 
 @section('content')
 <!-- フォームファザード  適切なURLを入力してください -->
-{!! Form::open(['url' => '/login']) !!}
-<!-- 下の内容の送り先を書く。（/topに飛ばす）/topから/loginに変更している -->
+<div class="login-form">
+   {!! Form::open(['url' => '/login']) !!}
+     <p class="hello">AtlasSNSへようこそ</p>
 
-<p>AtlasSNSへようこそ</p>
+       <div class="box">
 
-{{ Form::label('e-mail') }}
-{{ Form::text('mail',null,['class' => 'input']) }}
-<!-- e-mail入力するところ -->
-{{ Form::label('password') }}
-{{ Form::password('password',['class' => 'input']) }}
-<!-- パスワードを入力するところ -->
-{{ Form::submit('ログイン') }}
-<!-- ログインボタン -->
+           <div class="set">
+             {{ Form::label('e-mail','mail address',['class' => 'login']) }}
+              <br>
+              {{ Form::text('mail',null,['class' => 'input']) }}
+              <br>
+           </div>
 
+           <div class="set">
+             {{ Form::label('password','password',['class' => 'login'])  }}
+              <br>
+             {{ Form::password('password',['class' => 'input']) }}
+              <br>
+           </div>
 
-<p><a href="/register">新規ユーザーの方はこちら</a></p>
-<!-- http://127.0.0.1:8000/registerに飛ぶ。-->
+           {{ Form::submit('LOGIN',['class' => 'login-btn']) }}
 
-{!! Form::close() !!}
+           <p class="register"><a href="/register">新規ユーザーの方はこちら</a></p>
+      </div>
+         {!! Form::close() !!}
+
+</div>
+
 
 @endsection

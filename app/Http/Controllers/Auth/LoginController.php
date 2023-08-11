@@ -55,7 +55,7 @@ class LoginController extends Controller
             }
         }
         return view("auth.login");
-        //リクエストがなかったらもうログイン画面を表示する。
+        //リクエストがなかったらもう一度ログイン画面を表示する。
     }
 
     // ログアウトする処理
