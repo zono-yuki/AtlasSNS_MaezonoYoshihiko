@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;//これを追加したらAuth認証できた
 
 use App\Http\Requests\PostFormRequest;//PostFormRequestファイルを作ったのでuseで使えるようにする。
+use App\Post;
 
 class PostsController extends Controller
 {
@@ -15,9 +16,10 @@ class PostsController extends Controller
         $user = Auth::user(); //ログイン認証しているユーザーの取得
         $username =Auth::user()->username;
 
-        //追加
-        $posts = \DB::table('posts')->get();//テーブルから全データ取得
-        return view('posts.index')->with('posts', $posts); // ('View側で指定する変数',代入する変数)
+        //Postテーブルから降順で全てのデータを取得する。
+        $posts = Post::orderBy('created_at','desc')->get();
+        // return view('posts.index')->with('posts', $posts);
+        return view('posts.index',compact('posts','user','username'));//$postsを送るが、postsと書く。
     }
 
     //投稿内容の登録
