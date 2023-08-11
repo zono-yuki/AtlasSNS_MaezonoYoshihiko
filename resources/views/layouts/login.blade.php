@@ -27,27 +27,24 @@
 
 <body>
     <header>
-        <!-- Atlasアイコン -->
+        <!-- Atlasロゴ -->
         <p class="logo">
             <a href="/top">
-                <img src="{{ asset('images/atlas.png') }}">
+                <img  class="atlas_logo" src="{{ asset('images/atlas.png') }}">
             </a>
         </p>
 
 
 
         <ul class="top">
-            <php?
-              $user = $_GET[];
-
-
-            ?>
+                <!-- ユーザー名-->
             <li> <?php $user = Auth::user(); ?> {{ $user -> username}} さん</li>
 
             <li>
+                <!-- アコーディオンメニュー -->
                 <div id="accordion" class="accordion-container">
 
-                    <h4 class="accordion-title js-accordion-title"></h4>
+                    <h4 class="accordion-title js-accordion-title">メニュー</h4>
                     <div class="accordion-content">
                         <p><a href="{{ asset('/top') }}">HOME</a></p>
                         <p><a href="{{ asset('/profile') }}">プロフィール編集</a></p>
@@ -57,7 +54,7 @@
                 </div>
             </li>
 
-
+                <!-- ユーザーのアイコン -->
             <li><img src="{{ asset('images/icon1.png') }}"></li>
 
         </ul>

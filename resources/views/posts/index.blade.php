@@ -30,9 +30,9 @@
 @foreach($posts as $post)
 <ul>
    <!-- id -->
-   <li> {{ $post-> id }}</li>
+   <li class="post-li"> {{ $post-> id }}</li>
 
-   
+
    <!-- 投稿 -->
    <li> {{ $post-> post }} </li>
 
