@@ -7,39 +7,63 @@
 @if ($errors->any())
 <div class="register_error">
    <ul>
-    @foreach ($errors->all() as $error)
-    <li>{{ $error }}</li>
-    @endforeach
+      @foreach ($errors->all() as $error)
+      <li>{{ $error }}</li>
+      @endforeach
    </ul>
 </div>
 @endif
 
 
+@section('content')
+<!-- フォームファザード  適切なURLを入力してください -->
+<div class="login-form">
+   {!! Form::open(['url' => '/register']) !!}
 
-<!-- 適切なURLを入力してください -->
-<!-- {!! Form::open(['url' => '/〇〇']) !!} -->
-{!! Form::open(['url' => '/register']) !!}
-<!-- /register画面にもう一度飛ばす。次は内容があるのでpostで受け取る。二回目で入力しているので、リクエストを受け取る処理にいく。 -->
+   <p class="hello">新規ユーザー登録</p>
 
-<h2>新規ユーザー登録</h2>
+   <div class="box">
 
-{{ Form::label('ユーザー名') }}
-{{ Form::text('username',null,['class' => 'input']) }}
+      <!-- ユーザー名 -->
+      <div class="set">
+         {{ Form::label('username','username',['class' => 'login']) }}
+         <br>
+         {{ Form::text('username',null,['class' => 'input']) }}
+         <br>
+      </div>
 
-{{ Form::label('メールアドレス') }}
-{{ Form::text('mail',null,['class' => 'input']) }}
+      <!-- メールアドレス -->
+      <div class="set">
+         {{ Form::label('e-mail','mail address',['class' => 'login'])  }}
+         <br>
+         {{ Form::text('mail',null,['class' => 'input']) }}
+         <br>
+      </div>
 
-{{ Form::label('パスワード') }}
-{{ Form::text('password',null,['class' => 'input']) }}
+      <!-- パスワード -->
+      <div class="set">
+         {{ Form::label('password','password',['class' => 'login'])  }}
+         <br>
+         {{ Form::text('password',null,['class' => 'input']) }}
+         <br>
+      </div>
 
-{{ Form::label('パスワード確認') }}
-{{ Form::text('password_confirmation',null,['class' => 'input']) }}
+      <!-- パスワード確認-->
+      <div class="set">
+         {{ Form::label('password','password confirm',['class' => 'login'])  }}
+         <br>
+         {{ Form::text('password_confirmation',null,['class' => 'input']) }}
+         <br>
+      </div>
 
-{{ Form::submit('登録') }}
+      <!-- 登録(REGISTER)ボタン -->
+      {{ Form::submit('REGISTER',['class' => 'login-btn']) }}
 
-<p><a href="/login">ログイン画面へ戻る</a></p>
+      <p class="register"><a href="/login">ログイン画面に戻る</a></p>
+   </div>
+   {!! Form::close() !!}
 
-{!! Form::close() !!}
+</div>
 
 
 @endsection
