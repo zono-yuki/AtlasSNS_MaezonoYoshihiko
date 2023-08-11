@@ -30,15 +30,15 @@
         <!-- Atlasロゴ -->
         <p class="logo">
             <a href="/top">
-                <img  class="atlas_logo" src="{{ asset('images/atlas.png') }}">
+                <img class="atlas_logo" src="{{ asset('images/atlas.png') }}">
             </a>
         </p>
 
 
 
         <ul class="top">
-                <!-- ユーザー名-->
-            <li> <?php $user = Auth::user(); ?> {{ $user -> username}} さん</li>
+            <!-- ユーザー名-->
+            <li>{{ Auth::user() -> username }} さん</li>
 
             <li>
                 <!-- アコーディオンメニュー -->
@@ -54,7 +54,7 @@
                 </div>
             </li>
 
-                <!-- ユーザーのアイコン -->
+            <!-- ユーザーのアイコン -->
             <li><img src="{{ asset('images/icon1.png') }}"></li>
 
         </ul>
@@ -66,17 +66,17 @@
 
     <div id="row">
 
-     <!-- 左側 -->
+        <!-- 左側 -->
         <div id="container">
             @yield('content')
             <!-- ここの中身だけindex.php、followlist.php、followerlist.phpでは継承して使う。 -->
         </div>
 
 
-    <!-- 右側 -->
+        <!-- 右側 -->
         <div id="side-bar">
             <div id="confirm">
-                <p> {{$user->username }} さんの</p>
+                <p> {{ Auth::user() -> username }} さんの</p>
                 <div>
                     <p>フォロー数</p>
                     <p>〇〇名</p>
