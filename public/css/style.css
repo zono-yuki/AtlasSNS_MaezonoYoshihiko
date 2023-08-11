@@ -5,7 +5,37 @@ body{
 }
 /* header */
 header{
+    display: flex;
     background:#186AC9;
+    align-items:center;
+    justify-content:space-between;
+    width:100%;
+    line-height:70px;
+}
+
+header.logo{
+  padding: 0 20px;
+}
+
+header ul{
+  padding:0 30px;
+  display: flex;
+  align-items: center;
+}
+
+header li{
+  display: inline-block;
+  padding: 0 10px;
+  font-size: 20px;
+  letter-spacing: .2em;
+}
+
+header li a:hover{
+  text-decoration: underline;
+}
+
+.top{
+  display: flex;
 }
 
 /* main content */

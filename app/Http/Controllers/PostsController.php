@@ -3,22 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;//これを追加したらAuth認証できた
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests\PostFormRequest;//PostFormRequestファイルを作ったのでuseで使えるようにする。
 use App\Post;
+use App\User;
 
 class PostsController extends Controller
 {
 
     public function index(){
-        //追加
+        //追加Auth認証
         $user = Auth::user(); //ログイン認証しているユーザーの取得
-        $username =Auth::user()->username;
+        // $username =Auth::user()->username;
+        $username = $user->username;
+
 
         //Postテーブルから降順で全てのデータを取得する。
         $posts = Post::orderBy('created_at','desc')->get();
-        // return view('posts.index')->with('posts', $posts);
+
         return view('posts.index',compact('posts','user','username'));//$postsを送るが、postsと書く。
     }
 
@@ -34,7 +37,7 @@ class PostsController extends Controller
             $user_id = auth()->id();
             //ここはuser_idがnullだとエラーでつぶやきが登録できないため、ログインしているこの、usersテーブルのIDを引っ張ってきて$user_idに格納している処理。
 
-            \DB::table('posts')->insert([
+            Post::insert([
                 'user_id' => $user_id,
                 'post' => $post,
                 'created_at' => now(),
@@ -52,7 +55,7 @@ class PostsController extends Controller
 
     // 削除機能
     public function delete($id){
-        \DB::table('posts')->where('id', $id)->delete();
+        Post::where('id', $id)->delete();
         return redirect('/top');
     }
 
@@ -62,7 +65,7 @@ class PostsController extends Controller
         $id = $request->input('id');
         $posts = $request->input('post');
         //2つ目の処理
-        \DB::table('posts')->where('id',$id)->update([
+        Post::where('id', $id)->update([
             'post' => $posts
         ]);
         return redirect('/top');

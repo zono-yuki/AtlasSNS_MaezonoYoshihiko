@@ -27,34 +27,59 @@
 
 <body>
     <header>
-        <div id="head">
-            <h1><a href="/top"><img src="{{ asset('images/atlas.png') }}"></a></h1>
-            <div id="top">
-                <div id="top">
-                    <p> {{ $user->username }}さん</p>
-                    <img src="{{ asset('images/icon1.png') }}">
+        <!-- Atlasアイコン -->
+        <p class="logo">
+            <a href="/top">
+                <img src="{{ asset('images/atlas.png') }}">
+            </a>
+        </p>
 
-                    <div id="accordion" class="accordion-container">
 
-                        <h4 class="accordion-title js-accordion-title">MENU</h4>
-                        <div class="accordion-content">
-                            <p><a href="{{ asset('/top') }}">HOME</a></p>
-                            <p><a href="{{ asset('/profile') }}">プロフィール編集</a></p>
-                            <p><a href="{{ asset('/logout') }}">ログアウト</a></p>
-                        </div>
 
+        <ul class="top">
+            <php?
+              $user = $_GET[];
+
+
+            ?>
+            <li> {{ $user -> username}} さん</li>
+
+            <li>
+                <div id="accordion" class="accordion-container">
+
+                    <h4 class="accordion-title js-accordion-title">MENU</h4>
+                    <div class="accordion-content">
+                        <p><a href="{{ asset('/top') }}">HOME</a></p>
+                        <p><a href="{{ asset('/profile') }}">プロフィール編集</a></p>
+                        <p><a href="{{ asset('/logout') }}">ログアウト</a></p>
                     </div>
 
                 </div>
+            </li>
+
+
+            <li><img src="{{ asset('images/icon1.png') }}"></li>
+
+        </ul>
     </header>
+
+
+
+
+
     <div id="row">
+
+     <!-- 左側 -->
         <div id="container">
             @yield('content')
-            <!-- ここの中身だけfollowlist.php、followerlist.phpでは継承して使う。 -->
+            <!-- ここの中身だけindex.php、followlist.php、followerlist.phpでは継承して使う。 -->
         </div>
+
+
+    <!-- 右側 -->
         <div id="side-bar">
             <div id="confirm">
-                <p>{{ $user->username }}さんの</p>
+                <p> {{$user->username }} さんの</p>
                 <div>
                     <p>フォロー数</p>
                     <p>〇〇名</p>
