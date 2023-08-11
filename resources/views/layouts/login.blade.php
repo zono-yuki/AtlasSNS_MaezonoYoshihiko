@@ -31,9 +31,8 @@
             <h1><a href="/top"><img src="{{ asset('images/atlas.png') }}"></a></h1>
             <div id="top">
                 <div id="top">
-                    <p> <?php $user = Auth::user(); ?>{{ $user->username }}さん<img src="{{ asset('images/icon1.png') }}"></p>
-
-                    <!-- アコーディオンメニュー作成-->
+                    <p> {{ $user->username }}さん</p>
+                    <img src="{{ asset('images/icon1.png') }}">
 
                     <div id="accordion" class="accordion-container">
 
