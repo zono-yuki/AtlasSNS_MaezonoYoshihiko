@@ -42,12 +42,12 @@
 
 
             ?>
-            <li> {{ $user -> username}} さん</li>
+            <li> <?php $user = Auth::user(); ?> {{ $user -> username}} さん</li>
 
             <li>
                 <div id="accordion" class="accordion-container">
 
-                    <h4 class="accordion-title js-accordion-title">MENU</h4>
+                    <h4 class="accordion-title js-accordion-title"></h4>
                     <div class="accordion-content">
                         <p><a href="{{ asset('/top') }}">HOME</a></p>
                         <p><a href="{{ asset('/profile') }}">プロフィール編集</a></p>
