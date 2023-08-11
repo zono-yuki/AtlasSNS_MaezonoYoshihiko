@@ -11,11 +11,16 @@ use App\User;
 
 class PostsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth'); //auth認証
+        //PostsController.phpを読み込む前にauth機能を実行
+    }
 
     public function index(){
         //追加Auth認証
         $user = Auth::user(); //ログイン認証しているユーザーの取得
-        // $username =Auth::user()->username;
+        $username =Auth::user()->username;
         $username = $user->username;
 
 

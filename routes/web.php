@@ -23,7 +23,7 @@
 //ログアウト中のページ///////////////////////////////////
 
 //ログイン画面の表示
-Route::get('/login', 'Auth\LoginController@login');
+Route::get('/login', 'Auth\LoginController@login')->name('auth.login');
 Route::post('/login', 'Auth\LoginController@login');
 
 
@@ -52,6 +52,8 @@ Route::group(['middleware' => 'auth'], function (){ //アクセス制限をか�
 
  //トップページ画面
    Route::get('/top','PostsController@index');//投稿画面とつぶやき表示まで表示する。
+   Route::post('/top', 'PostsController@index');
+
    Route::post('/create', 'PostsController@create'); //投稿を登録する処理。
 
    Route::get('/post/{id}/delete','PostsController@delete');//投稿の削除
