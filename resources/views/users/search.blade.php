@@ -10,7 +10,7 @@
 
  <!-- ユーザー検索フォーム表示-->
 <div>
-  <form action="/search/" method="post" class="search-form-001">
+  <form action="/search" method="post" class="search-form-001">
     @csrf
     <input type="search" name="keyword" class="form" placeholder="ユーザー名" value="@if(isset($keyword)){{$keyword}}@endif">
     <input type="image" src="images/search.png" class="search_btn" alt="検索ボタン"></input>

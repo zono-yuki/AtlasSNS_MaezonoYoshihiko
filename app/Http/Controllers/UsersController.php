@@ -16,7 +16,7 @@ class UsersController extends Controller
 
     //ユーザー検索画面を表示させる処理(ユーザー一覧をページネートで取得する)
     public function search(){
-        $users = User::paginate(20);
+        $users = User::paginate(20);//ページごとに表示するアイテムの数
         return view('users.search')->with('users',$users);
         //viewに$users(usersテーブルの情報)を送る。paginateは「ページごと」に表示するアイテムの数
     }

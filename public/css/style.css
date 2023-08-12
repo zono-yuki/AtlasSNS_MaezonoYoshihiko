@@ -279,14 +279,17 @@ ul{
 /* 検索フォーム//////////////////////////////////////////// */
 
 .search-form-001{
+  padding-top: 30px;
+  padding-left: 30px;
   display: flex;
   align-items: center;
-  justify-content:center;
+  justify-content:flex-start;
 }
 
 .form{
-  width:200px;
-  height: 30px;
+  width:300px;
+  height: 35px;
+  font-size: 20px;
 }
 
 .search_btn{
@@ -294,4 +297,13 @@ ul{
  height: 38px;
  border-radius: 7px;
  cursor: pointer;
+}
+
+.search_btn:hover{
+  opacity:0.7;
+}
+
+/* textareaにフォーカスしたら色を変える。 */
+.form:focus{
+  background-color: #bde9ba;
 }

@@ -65,8 +65,11 @@ Route::group(['middleware' => 'auth'], function (){ //アクセス制限をか�
  //プロフィール画面
    Route::get('/profile','UsersController@profile');
 
+
  //ユーザー検索画面
-   Route::get('/search','UsersController@search');
+   Route::get ('/search','UsersController@search');
+   Route::post('/search','UsersController@search');
+
 
  //フォローリスト画面
    Route::get('/followList','PostsController@followList');
