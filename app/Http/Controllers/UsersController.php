@@ -14,31 +14,25 @@ class UsersController extends Controller
     }
 
 
-    //ユーザー検索画面を表示させる処理(ユーザー一覧をページネートで取得する)
-    public function search(){
-        $users = User::paginate(20);//ページごとに表示するアイテムの数
-        return view('users.search')->with('users',$users);
-        //viewに$users(usersテーブルの情報)を送る。paginateは「ページごと」に表示するアイテムの数
-    }
+    //検索処理の実行
+    public function search(Request $request){
 
+        $user= Auth::user();
 
-
-    //ユーザー検索の処理を実装する
-    public function searchView(Request $request){
+        //キーワード受け取り
         $keyword = $request->input('keyword');
-        $query = User::query();
-    //  dd($query);
+        // dump($keyword);
 
-    //  dd($username);
-        if (!empty($keyword)) {//$keywordがnullでなければ入る。
-            $query -> orwhere('username','like','%'.$keyword.'%')
-            ->get();//orWhereは複数条件を扱える。
+        //データベースに問い合わせ
+        if (!empty($keyword)) {
+            $query = User::query();
+            $query->where('username', 'LIKE' , "%{$keyword}%");
+            $users = $query->get();
+            return view('users.search',compact('user','users','keyword',));
+        }else{
+            $users = User::get();
+
+            return view('users.search',compact('user','users','keyword',));
         }
-
-    //  全件取得＋ページネーション
-        $data= $query->orderBy('created_at','desc')->paginate(5);
-        //  dd(data);
-        return view('users.search')->with('data',$data)->
-        with('keyword',$keyword)->with('users',$users)->with('query',$query);
     }
 }
