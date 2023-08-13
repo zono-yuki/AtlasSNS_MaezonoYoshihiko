@@ -82,13 +82,18 @@
                     <p>フォロー数</p>
                     <p>〇〇人</p>
                 </div>
-                <p class="btn"><a href="{{ asset('/followList') }}">フォローリスト</a></p>
+                <div class="side-right">
+                    <p class="btn"><a href="{{ asset('/followList') }}">フォローリスト</a></p>
+                </div>
 
                 <div class="side-flex">
                     <p>フォロワー数</p>
                     <p>〇〇人</p>
                 </div>
-                <p class="btn"><a href="{{ asset('/followerList') }}">フォロワーリスト</a></p>
+                <div class="side-right">
+                    <p class="btn"><a href="{{ asset('/followerList') }}">フォロワーリスト</a></p>
+                </div>
+
             </div>
 
             <div class="side-search_btn">

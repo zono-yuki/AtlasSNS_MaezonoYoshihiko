@@ -42,7 +42,7 @@
    <!-- 編集ボタン-->
    <li>
       <!-- 編集ボタン押すとモーダル着火-->
-      <button type="button" id="openModal" post="{{ $post->post }}" post_id="{{ $post ->id}}" updated_at="">
+      <button type="button" class="openModal" post="{{ $post->post }}" post_id="{{ $post ->id}}" updated_at="">
          <input type="image" src="images/edit.png" class="post_btn1" alt="編集ボタン">
       </button>
    </li>
