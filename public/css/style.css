@@ -49,6 +49,26 @@ header li a:hover{
     border-left: 1px solid #727272;
 }
 
+#confirm{
+  padding-top: 20px;
+  border-bottom: 1px solid #727272;
+}
+
+.side-flex{
+  display: flex;
+  align-items: center;
+  justify-content:space-around;
+  padding-top:20px;
+}
+
+.side-username{
+  padding-left: 22px;
+}
+
+.side-search_btn {
+  text-align: center;
+}
+
 button{
   border: none;
 }
@@ -166,6 +186,7 @@ button{
 }
 
 /* ここまでがアコーディオンメニュー */
+
 
 
 
