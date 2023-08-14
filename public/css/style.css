@@ -194,16 +194,31 @@ button{
 
 
 /* ・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・ */
+.flex-post{
+  display: flex;
+  align-items: center;
+
+}
+
 /* つぶやき送信ボタン */
 .submit_btn{
   width: 60px;
   height: auto;
   border-radius:15px;
   cursor:pointer;
+  transition: all 0.3s ease;
 }
 /* ホバーしたら、色が変わる？変わらないから聞く。 */
 .submit_btn:hover{
-  background-color: #666;
+  background: #727272;
+}
+
+.flex-post img{
+  padding-left: 20px;
+}
+
+.flex-post textarea{
+  font-size: 20px;
 }
 /* ///////////////////////////////////////////////////////////////////////////////////// */
 
