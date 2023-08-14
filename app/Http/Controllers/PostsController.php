@@ -25,7 +25,7 @@ class PostsController extends Controller
 
 
         //Postテーブルから降順で全てのデータを取得する。
-        $posts = Post::orderBy('created_at','desc')->get();
+        $posts = Post::orderBy('updated_at','desc')->get();
 
         return view('posts.index',compact('posts','user','username'));//$postsを送るが、postsと書く。
     }
@@ -69,9 +69,13 @@ class PostsController extends Controller
         //1つ目の処理
         $id = $request->input('id');
         $posts = $request->input('post');
+
+        $updated_at = now();
+
         //2つ目の処理
         Post::where('id', $id)->update([
-            'post' => $posts
+            'post' => $posts,
+            'updated_at' => $updated_at,//更新日時の更新
         ]);
         return redirect('/top');
     }

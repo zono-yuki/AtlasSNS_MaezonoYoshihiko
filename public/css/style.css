@@ -79,12 +79,13 @@ button{
 
 #comment{
   margin: 30px 10px 30px 30px;
+  /* padding-top: 40px; */
   font-size: 15px;
 }
 
 ::placeholder{
   /* color: #b0c4de; */
-  color: paleturquoise;
+  color: gray;
 }
 
 

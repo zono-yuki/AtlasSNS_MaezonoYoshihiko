@@ -22,7 +22,7 @@
 <div class="flex-post">
    <img src="{{ asset('storage/images/icon1.png')}}">
    <label for="comment"></label>
-   <textarea id="comment" name="post" cols="100" rows="5" placeholder="投稿内容を入力してください。"></textarea>
+   <textarea id="comment" name="post" cols="100" rows="3" placeholder="投稿内容を入力してください。"></textarea>
    <input type="image" src="images/post.png" class="submit_btn" alt="送信する">
    <!--input要素のtype属性の値にimageを指定すると、画像ボタンを作成することができる。画像ボタンにはalt属性が必須になります。 -->
 </div>
@@ -43,7 +43,7 @@
    <li> {{ $post-> post }} </li>
 
    <!-- 作成日時 -->
-   <li>{{ $post-> created_at}}</li>
+   <li>{{ $post-> updated_at}}</li>
 
    <!-- 編集ボタン-->
    <li>
