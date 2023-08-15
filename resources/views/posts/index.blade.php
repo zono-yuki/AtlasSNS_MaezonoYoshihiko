@@ -34,36 +34,48 @@
 
 <!-- 追加  つぶやきを全部表示する処理 -->
 @foreach($posts as $post)
-<ul>
-   <!-- id -->
-   <li class="post-li"> {{ $post-> id }}</li>
+<div>
+   <ul>
+      <li class="post-block">
+         <figure>
+            <img class="top-img" src="{{ asset('storage/images/icon1.png')}}" alt="アイコン">
+         </figure>
+         <div class="post-content">
+            <div>
+               <div class="post-name">
+                  {{ $post-> id }}
+                  <!-- ユーザー名はpostsテーブルとusersテーブルをリレーションで紐づけてから持ってくる？ -->
+               </div>
+               <div>
+                  {{ $post-> updated_at }}
+               </div>
+            </div>
+            <div>
+               {{ $post-> post }}
+            </div>
+            <ul class="button-flex">
+               <!-- 編集ボタン-->
+               <li>
+                  <!-- 編集ボタン押すとモーダル着火-->
+                  <button type="button" class="openModal" post="{{ $post->post }}" post_id="{{ $post ->id}}" updated_at="">
+                     <input type="image" src="{{ asset('storage/images/edit.png')}}" class="post_btn1" alt="編集ボタン">
+                  </button>
+               </li>
 
+               <!--削除ボタン-->
+               <li>
+                  <a href="/post/{{ $post->id }}/delete">
+                     <input type="image" src="images/trash.png" class="post_btn2" alt="削除ボタン" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
+                  </a>
+               </li>
+            </ul>
 
-   <!-- 投稿 -->
-   <li> {{ $post-> post }} </li>
-
-   <!-- 作成日時 -->
-   <li>{{ $post-> updated_at}}</li>
-
-   <!-- 編集ボタン-->
-   <li>
-      <!-- 編集ボタン押すとモーダル着火-->
-      <button type="button" class="openModal" post="{{ $post->post }}" post_id="{{ $post ->id}}" updated_at="">
-         <input type="image" src="images/edit.png" class="post_btn1" alt="編集ボタン">
-      </button>
-   </li>
-
-   <!--削除ボタン-->
-   <li>
-      <a href="/post/{{ $post->id }}/delete">
-         <input type="image" src="images/trash.png" class="post_btn2" alt="削除ボタン" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
-      </a>
-   </li>
-
-
-   <br>
-</ul>
+         </div>
+      </li>
+   </ul>
+</div>
 @endforeach
+
 
 
 
