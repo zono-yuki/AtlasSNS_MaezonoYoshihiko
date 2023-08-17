@@ -24,15 +24,17 @@ class UsersController extends Controller
         // dump($keyword);
 
         //データベースに問い合わせ
-        if (!empty($keyword)) {
+        if (!empty($keyword)) {//キーワードが入力されていたら、、
             $query = User::query();
             $query->where('username', 'LIKE' , "%{$keyword}%");
             $users = $query->get();
             return view('users.search',compact('user','users','keyword',));
+            //①ログインしているユーザーの情報, ②キーワードに少しでも一致したuser情報, ③入力されたキーワード を送る
         }else{
             $users = User::get();
 
             return view('users.search',compact('user','users','keyword',));
+            //①ログインしているユーザーの情報, ②usersテーブルの全情報, ③入力されたキーワード を送る
         }
     }
 }

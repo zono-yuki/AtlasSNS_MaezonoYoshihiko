@@ -10,7 +10,7 @@ header{
     align-items:center;
     justify-content:space-between;
     width:100%;
-    line-height:70px;
+    line-height:60px;
 }
 
 
@@ -43,6 +43,7 @@ header li a:hover{
 }
 #container{
     flex: 0 0 80%;
+    /* width: 100%; */
 }
 #side-bar{
     flex: 0 0 19%;
@@ -89,7 +90,13 @@ button{
 }
 
 
-
+.atlas_logo{
+  /* display: inline-block; */
+  width:200px;
+  height: auto;
+  padding-left: 30px;
+  padding-top: 20px;
+}
 /* アコーディオンメニュー【Atlasトップページ】 */
 
 .accordion-container {
@@ -318,6 +325,22 @@ ul{
 
 /* 検索フォーム//////////////////////////////////////////// */
 
+.search-top-flex{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+
+}
+
+.keyword-box{
+  padding-top: 30px;
+  padding-right: 70px;
+}
+
+.keyword{
+  font-size: 25px;
+}
 .search-form-001{
   padding-top: 30px;
   padding-left: 30px;
@@ -346,6 +369,27 @@ ul{
 /* textareaにフォーカスしたら色を変える。 */
 .form:focus{
   background-color: #bde9ba;
+}
+
+.search-users{
+
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  /* padding-left: 320px; */
+  padding-left: 20%;
+  padding-top: 60px;
+}
+
+.search-icon{
+display: inline-block;
+width: 20%;
+height: auto;
+}
+
+.search-name{
+  width: 20%;
+  display: inline-block;
 }
 
 /* TOPページ//////////////////////////////////////////////////////////////////////////// */
