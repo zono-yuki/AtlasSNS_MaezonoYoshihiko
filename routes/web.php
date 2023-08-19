@@ -70,6 +70,13 @@ Route::group(['middleware' => 'auth'], function (){ //アクセス制限をか�
    Route::get ('/search','UsersController@search');
    Route::post('/search', 'UsersController@search');
 
+  //  フォロー解除するボタンを押した時
+   Route::get ('/search/{id}/unfollow','FollowsController@unfollow');
+  Route::post('/search/{id}/unfollow', 'FollowsController@unfollow');
+  //  フォローするボタンを押した時
+  Route::get('/search/{id}/follow', 'FollowsController@follow');
+  Route::post('/search/{id}/follow', 'FollowsController@follow');
+
 
 
  //フォローリスト画面

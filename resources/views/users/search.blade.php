@@ -2,21 +2,20 @@
 
 @section('content')
 
-<!-- 今日は、Redmine質問作成と、フォームのcss、検索処理の実装をする。 -->
-<!-- @csrfはpostで送る時に書かないとエラーになるから書く。笑トークンが勝手に含まれて送られる。セッションにも入るのでそれと一致し、一致した場合の正規のリクエストとして受け入れられる仕様になる -->
-<!-- これが送られる。クロスサイトリクエストフォージェリを防ぐため。不正なHTTPを送られる攻撃。
-    <input type="hidden" name="_token" value="loiuhJKkjhUI664hjgk6jhg6fjg675JHGGOogo">
- -->
 
 <!-- ユーザー検索フォーム表示-->
 
 
 <div class="search-top-flex">
   <div>
+    <!-- 検索フォーム -->
     <form action="/search" method="post" class="search-form-001">
       @csrf
-      <input type="search" name="keyword" class="form" placeholder="ユーザー名" value="@if(isset($keyword)) {{ $keyword }}@endif">
+      <input type="search" name="keyword" class="form" placeholder="ユーザー名" value="@if(isset($keyword)){{ $keyword }}@endif
+        ">
+      <!-- もしキーワードが入力されていたら、キーワードを表示する。前の検索を残すため。 -->
       <input type="image" src="images/search.png" class="search_btn" alt="検索ボタン"></input>
+      <!-- 検索ボタン -->
     </form>
   </div>
 
@@ -27,7 +26,6 @@
     <p class="keyword">検索ワード：{{$keyword}}</p>
     @endif
   </div>
-
 </div>
 
 
@@ -35,21 +33,45 @@
 <!-- 保存されているユーザー一覧 -->
 <div class="container-list">
 
-  <!-- 送られてきたuser情報をあるだけ全て繰り返す-->
+  <!-- UsersControllerから飛んでくる。$usersは送られてきた検索に一致したユーザー -->
+  <!-- 名前が少しでも一致したusers情報をあるだけ全て繰り返す-->
+  <!-- 自分以外のユーザー情報usersをひとまとめに表示する -->
+
   @foreach($users as $users)
 
-  <!-- 自分以外のユーザーを表示 -->
+  <!-- もしログインユーザーと少しでも一致したユーザが同じでなければ入る。 -->
   @if(!($user-> username == $users->username))
 
   <ul class="search-users">
 
+    <!-- 登録者アイコン -->
     <li class="search-icon"><img src="{{ asset('storage/images/icon1.png')}}" alt="ユーザーアイコン"></li>
-
+    <!-- 登録者名 -->
     <li class="search-name">{{$users->username}}</li>
+
+
+    <!-- フォロー、フォロー解除ボタン -->
+
+    <!-- もしログインユーザーがフォローしていたらフォロー解除ボタンを表示する -->
+    <!-- isFollowingメソッドにフォローしているか判定-->
+    @if (auth()->user()->isFollowing($users->id))
+      <li class="unfollow_btn">
+        <button type="submit" class="btn btn-danger">
+          <a href="/search/{{ $users->id }}/unfollow">フォロー解除</a>
+        </button>
+      </li>
+
+    <!-- フォローしていなかったらフォローボタンを表示する -->
+    @else
+    <li class="follow_btn">
+      <button type="submit" class="btn btn-blue">
+        <a href="/search/{{ $users->id }}/follow">フォローする</a>
+      </button>
+    </li>
+    @endif
 
   </ul>
   @endif
-
   @endforeach
 </div>
 @endsection

@@ -17,7 +17,7 @@ class UsersController extends Controller
     //検索処理の実行
     public function search(Request $request){
 
-        $user= Auth::user();
+        $user= Auth::user();//ログインユーザー取得
 
         //キーワード受け取り
         $keyword = $request->input('keyword');
