@@ -83,7 +83,7 @@
                     <p>〇〇人</p>
                 </div>
                 <div class="side-right">
-                    <p class="btn"><a href="{{ asset('/followList') }}">フォローリスト</a></p>
+                    <p class="btn btn_base"><a href="{{ asset('/followList') }}">フォローリスト</a></p>
                 </div>
 
                 <div class="side-flex">
@@ -91,13 +91,13 @@
                     <p>〇〇人</p>
                 </div>
                 <div class="side-right">
-                    <p class="btn"><a href="{{ asset('/followerList') }}">フォロワーリスト</a></p>
+                    <p class="btn btn_base"><a href="{{ asset('/followerList') }}">フォロワーリスト</a></p>
                 </div>
 
             </div>
 
             <div class="side-search_btn">
-                <p class="btn"><a href="{{ asset('/search') }}">ユーザー検索</a></p>
+                <p class="btn btn_base"><a href="{{ asset('/search') }}">ユーザー検索</a></p>
             </div>
 
         </div>

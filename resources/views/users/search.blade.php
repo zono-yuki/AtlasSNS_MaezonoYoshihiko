@@ -56,7 +56,7 @@
     <!-- isFollowingメソッドにフォローしているか判定-->
     @if (auth()->user()->isFollowing($users->id))
       <li class="unfollow_btn">
-        <button type="submit" class="btn btn-danger">
+        <button type="submit" class="btn unfollow">
           <a href="/search/{{ $users->id }}/unfollow">フォロー解除</a>
         </button>
       </li>
@@ -64,7 +64,7 @@
     <!-- フォローしていなかったらフォローボタンを表示する -->
     @else
     <li class="follow_btn">
-      <button type="submit" class="btn btn-blue">
+      <button type="submit" class="btn follow">
         <a href="/search/{{ $users->id }}/follow">フォローする</a>
       </button>
     </li>

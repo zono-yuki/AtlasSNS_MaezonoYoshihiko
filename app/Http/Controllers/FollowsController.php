@@ -11,12 +11,16 @@ use App\Post;
 
 class FollowsController extends Controller
 {
-    //
+
     public function followList(){
         return view('follows.followList');
     }
     public function followerList(){
         return view('follows.followerList');
+    }
+
+    public function show(User $user){
+        
     }
 
 

@@ -265,7 +265,6 @@ ul{
   display: inline-block;
   text-decoration: none;
   padding: 10px 20px;
-  background: linear-gradient(to right bottom, #FFA500, #FF6347);
   border-radius: 5px;
   color: #fff;
   margin: 20px;
@@ -274,6 +273,14 @@ ul{
 
 .btn:hover {
   opacity: .3;
+}
+
+.btn_base{
+  background: #0079c1;
+}
+
+.btn_base a{
+  color:#fff;
 }
 /* ////////////////////////////////////////////////////////////////////////////////////// */
 /* 編集モーダル */
@@ -364,6 +371,25 @@ ul{
 
 .search_btn:hover{
   opacity:0.7;
+}
+
+/* フォローする、フォロー解除ボタン */
+.follow{
+  background:deepskyblue;
+  color:#fff;
+}
+
+.follow a{
+  color:#fff;
+}
+
+.unfollow{
+  background:red;
+  color:#fff;
+}
+
+.unfollow a{
+  color: #fff;
 }
 
 /* textareaにフォーカスしたら色を変える。 */
