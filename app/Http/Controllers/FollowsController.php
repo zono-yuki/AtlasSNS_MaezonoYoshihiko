@@ -19,9 +19,7 @@ class FollowsController extends Controller
         return view('follows.followerList');
     }
 
-    public function show(User $user){
-        
-    }
+
 
 
     //フォロー解除///////

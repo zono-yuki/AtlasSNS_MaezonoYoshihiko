@@ -38,15 +38,17 @@ class User extends Authenticatable
         return $this->hasMany('Post::class');
     }
 ///////////////////////////////////////////////////////////////////////////////////////
-    //多対多のリレーションを書く。
+    //多対多のリレーションを書く。(follows結合テーブルとのリレーション)
     public function follows()
     {
         return $this->belongsToMany('App\User', 'follows', 'following_id', 'followed_id');
+        //ログインユーザーのID,フォローしている相手のID
     }
 
     public function follower()
     {
         return $this->belongsToMany('App\User', 'follows', 'followed_id', 'following_id');
+        //自分をフォローしている人のID,ログインユーザーのID
     }
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -57,7 +59,8 @@ class User extends Authenticatable
         // ログインユーザーがフォローしているユーザーさんを探す。
     }
 
-    //フォローされているか確認する
+
+    //フォローされているか確認する//使用していない
     public function isFollowed(Int $user_Id)
     {
         return (bool) $this->follower()->where('following_id', $user_Id)->first();
@@ -75,6 +78,5 @@ class User extends Authenticatable
     {
         return $this->follows()->detach($user_Id);
     }
-///////////////////////////////////////////////////////////////////////////////////////////
-
+//////////////////////////////////////////////////////////////////////////////////////////
 }

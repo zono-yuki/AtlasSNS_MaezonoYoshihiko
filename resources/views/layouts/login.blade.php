@@ -80,7 +80,7 @@
 
                 <div class="side-flex">
                     <p>フォロー数</p>
-                    <p>〇〇人</p>
+                    <p>{{ Auth::user()->follows()->count() }}人</p>
                 </div>
                 <div class="side-right">
                     <p class="btn btn_base"><a href="{{ asset('/followList') }}">フォローリスト</a></p>
@@ -88,7 +88,7 @@
 
                 <div class="side-flex">
                     <p>フォロワー数</p>
-                    <p>〇〇人</p>
+                    <p>{{ Auth::user()->follower()->count() }}人</p>
                 </div>
                 <div class="side-right">
                     <p class="btn btn_base"><a href="{{ asset('/followerList') }}">フォロワーリスト</a></p>
