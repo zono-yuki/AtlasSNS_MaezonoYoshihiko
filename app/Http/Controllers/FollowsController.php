@@ -12,17 +12,21 @@ use App\Post;
 
 class FollowsController extends Controller
 {
+    //フォローリストの画面を表示する。フォローしている人のアイコンと、投稿を表示する。
 
     public function followList(){
         //ログインユーザーがフォローしている人を全部表示する、①これをviewに送る。
         $follows = Auth::user()->follows()->get();
-
         //フォローしている人のidを取得する。（pluck）
         $following_id = Auth::user()->follows()->pluck('followed_id');
 
-        //Postモデル(postsテーブル)からpostsテーブルのuser_idと$following_idが同じ投稿を昇順で取得する。(カラム名,条件)②これをviewに送る
-        $posts = Post::with('user')->whereIn('user_id', $following_id)->latest()->get();
+        // dd($following_id);
+        //取得できている。
 
+        //Postモデル(postsテーブル)からpostsテーブルのuser_idと$following_idが同じ投稿を新しい順で取得する。(カラム名,条件)②これをviewに送る
+        $posts = Post::with('user')->whereIn('user_id',$following_id)->latest()->get();
+        // dd($posts);
+        //取得できていない。
         return view('follows.followList', ['posts' => $posts, 'follows' => $follows]);
     }
 

@@ -38,7 +38,7 @@
 
         <ul class="top">
             <!--ログインしているユーザー名を表示する-->
-            <li>{{ Auth::user() -> username }} さん</li>
+            <li class= "login-name">{{ Auth::user() -> username }} さん</li>
 
             <li>
                 <!-- アコーディオンメニュー -->

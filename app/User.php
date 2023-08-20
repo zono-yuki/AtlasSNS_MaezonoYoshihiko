@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'mail', 'password','bio'//外部キーを設定
+        'username', 'mail', 'password',//外部キーを設定
     ];
 
     /**

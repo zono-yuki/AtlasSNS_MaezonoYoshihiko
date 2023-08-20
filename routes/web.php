@@ -80,9 +80,9 @@ Route::group(['middleware' => 'auth'], function (){ //アクセス制限をか�
 
 
  //フォローリスト画面
-   Route::get('/followList','PostsController@followList');
+   Route::get('/followList','FollowsController@followList');
 
  //フォロワーリスト画面
-   Route::get('/followerList','PostsController@followerList');
+   Route::get('/followerList','FollowsController@followerList');
 
 });

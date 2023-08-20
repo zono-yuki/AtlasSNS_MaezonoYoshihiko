@@ -8,7 +8,7 @@ use App\User;
 class Post extends Model
 {
     protected $fillable = [
-        'user_id','post' //外部キーを設定
+        'user_id','post', //外部キーを設定
     ];
 
     //リレーション
