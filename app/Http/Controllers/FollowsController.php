@@ -9,12 +9,23 @@ use App\User;
 use App\Post;
 
 
+
 class FollowsController extends Controller
 {
 
     public function followList(){
-        return view('follows.followList');
+        //ログインユーザーがフォローしている人を全部表示する、①これをviewに送る。
+        $follows = Auth::user()->follows()->get();
+
+        //フォローしている人のidを取得する。（pluck）
+        $following_id = Auth::user()->follows()->pluck('followed_id');
+
+        //Postモデル(postsテーブル)からpostsテーブルのuser_idと$following_idが同じ投稿を昇順で取得する。(カラム名,条件)②これをviewに送る
+        $posts = Post::with('user')->whereIn('user_id', $following_id)->latest()->get();
+
+        return view('follows.followList', ['posts' => $posts, 'follows' => $follows]);
     }
+
     public function followerList(){
         return view('follows.followerList');
     }

@@ -35,7 +35,7 @@ class User extends Authenticatable
     // 一人のユーザーが複数の投稿を持つリレーション、一対多の関係
     public function posts()
     {
-        return $this->hasMany('Post::class');
+        return $this->hasMany(Post::class);
     }
 ///////////////////////////////////////////////////////////////////////////////////////
     //多対多のリレーションを書く。(follows結合テーブルとのリレーション)
