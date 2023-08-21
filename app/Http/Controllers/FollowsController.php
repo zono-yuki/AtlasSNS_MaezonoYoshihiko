@@ -17,7 +17,7 @@ class FollowsController extends Controller
     public function followList(){
         //ログインユーザーがフォローしている人を全部表示する、①これをviewに送る。
         $follows = Auth::user()->follows()->get();
-        
+
         //フォローしている人のidを取得する。（pluck）
         $following_id = Auth::user()->follows()->pluck('followed_id');
 
@@ -32,7 +32,22 @@ class FollowsController extends Controller
     }
 
     public function followerList(){
-        return view('follows.followerList');
+        //フォローワーリストの画面を表示する。フォローされている人のアイコンと、投稿を表示する。
+
+
+        $followers = Auth::user()->follower()->get();
+
+        //フォローされている人のidを取得する。（pluck）
+        $followering_id = Auth::user()->follower()->pluck('following_id');
+
+        // dd($followering_id);
+        //取得できている。
+
+        //Postモデル(postsテーブル)からpostsテーブルのuser_idと$followering_idが同じ投稿を新しい順で取得する。(カラム名,条件)②これをviewに送る
+        $posts = Post::with('user')->whereIn('user_id', $followering_id)->latest()->get();
+        // dd($posts);
+        //取得できていない。
+        return view('follows.followerList', ['posts' => $posts, 'followers' => $followers]);
     }
 
 
