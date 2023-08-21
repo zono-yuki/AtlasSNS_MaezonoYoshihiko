@@ -421,10 +421,12 @@ height: auto;
 /* TOPページ//////////////////////////////////////////////////////////////////////////// */
 
 .post-block{
-  padding: 30px 30px 30px 80px;
+  padding: 30px 30px 30px 200px;
   width: 100%;
   text-decoration: none;
-  border-bottom:1px solid #000;
+  /* border-bottom:3px solid #DCDCDC; */
+  border-bottom:1px solid #888;
+
   display:flex;
 }
 
@@ -442,7 +444,7 @@ height: auto;
   color: #fff;
 }
 .post-name{
-  margin-bottom:10px;
+  margin-bottom:15px;
 }
 
 .button-flex{
@@ -473,6 +475,6 @@ height: auto;
   background: #DCDCDC;
   /* max-width: 100%; */
   width: 100%;
-  height: 6px;
+  height: 8px;
   margin-top: 30px;
 }

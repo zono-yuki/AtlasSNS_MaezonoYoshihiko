@@ -38,15 +38,14 @@
       <div class="post-content">
         <div>
           <div class="post-name">
-            {{ $post-> id }}
-            <!-- ユーザー名はpostsテーブルとusersテーブルをリレーションで紐づけてから持ってくる？ -->
+            {{ $post->user->username}}
           </div>
           <div>
-            {{ $post-> updated_at }}
+            {{ $post->updated_at}}
           </div>
         </div>
         <div>
-          {{ $post-> post }}
+          {{ $post->post }}
         </div>
       </div>
 
