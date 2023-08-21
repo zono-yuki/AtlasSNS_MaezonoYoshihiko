@@ -17,6 +17,7 @@ class FollowsController extends Controller
     public function followList(){
         //ログインユーザーがフォローしている人を全部表示する、①これをviewに送る。
         $follows = Auth::user()->follows()->get();
+        
         //フォローしている人のidを取得する。（pluck）
         $following_id = Auth::user()->follows()->pluck('followed_id');
 

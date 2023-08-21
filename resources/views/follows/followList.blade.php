@@ -30,7 +30,10 @@
 
       <!-- アイコン表示 -->
       <figure>
-        <img class="top-img" src="{{ asset('storage/images/icon1.png')}}" alt="アイコン">
+        <a href="/profile/{{ $post->user->id}}/view">
+          <img class="top-img" src="{{ asset('storage/images/icon1.png')}}" alt="アイコン">
+        </a>
+
       </figure>
 
 

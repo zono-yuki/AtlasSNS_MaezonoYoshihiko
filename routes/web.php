@@ -66,6 +66,10 @@ Route::group(['middleware' => 'auth'], function (){ //アクセス制限をか�
    Route::get('/profile','UsersController@profile');
 
 
+//フォローリストのアイコンをクリックしたらプロフィール画面に飛ぶ。
+  Route::get('/profile/{id}/view', 'UsersController@profile');
+
+
  //ユーザー検索画面
    Route::get ('/search','UsersController@search');
    Route::post('/search', 'UsersController@search');
