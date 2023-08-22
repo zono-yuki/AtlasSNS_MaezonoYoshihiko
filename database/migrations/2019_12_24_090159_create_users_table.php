@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('updated_at')->default(DB::raw('current_timestamp on update current_timestamp'));
         });
     }
-    
+
 
     /**
      * Reverse the migrations.
