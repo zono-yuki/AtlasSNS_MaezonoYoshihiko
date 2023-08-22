@@ -28,7 +28,7 @@
   </div>
 </div>
 
-
+<div class="gray-line"></div>
 
 <!-- 保存されているユーザー一覧 -->
 <div class="container-list">
@@ -55,11 +55,11 @@
     <!-- もしログインユーザーがフォローしていたらフォロー解除ボタンを表示する -->
     <!-- isFollowingメソッドにフォローしているか判定-->
     @if (auth()->user()->isFollowing($users->id))
-      <li class="unfollow_btn">
-        <button type="submit" class="btn unfollow">
-          <a href="/search/{{ $users->id }}/unfollow">フォロー解除</a>
-        </button>
-      </li>
+    <li class="unfollow_btn">
+      <button type="submit" class="btn unfollow">
+        <a href="/search/{{ $users->id }}/unfollow">フォロー解除</a>
+      </button>
+    </li>
 
     <!-- フォローしていなかったらフォローボタンを表示する -->
     @else

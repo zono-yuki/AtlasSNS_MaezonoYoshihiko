@@ -36,7 +36,7 @@ class FollowsController extends Controller
 
 
         $followers = Auth::user()->follower()->get();
-
+// dd($followers);
         //フォローされている人のidを取得する。（pluck）
         $followering_id = Auth::user()->follower()->pluck('following_id');
 

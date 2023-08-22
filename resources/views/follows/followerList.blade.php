@@ -12,7 +12,9 @@
   <div>
     <!-- アイコンひとまとめ -->
     <figure class="follow_icon">
-      <img src="{{ asset('storage/images/icon1.png')}} " alt=" フォローアイコン">
+      <a href="/profile/{{ $follower->id}}/view">
+       <img src="{{ asset('storage/images/icon1.png')}} " alt=" フォローアイコン">
+      </a>
       <!-- <img src="{r{ asset('storage/images/' .$post->user->images)}} " alt=" フォローアイコン"> -->
 
 
