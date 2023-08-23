@@ -31,22 +31,23 @@
 
 
 
-    <!-- ログインユーザーでなければ「フォローする」or「フォロー解除」ボタンを表示する
+    <!-- ログインユーザーでなければ「フォローする」or「フォロー解除」ボタンを表示する -->
+    
     @if(!(Auth::user()== $users ))
-    @if(Auth()->user()->isFollowing($users->id))
-    <p class="unfollow_btn">
-      <button type="submit" class="btn unfollow">
-        <a href="/profile/{{ $users->id }}/unfollow">フォロー解除</a>
-      </button>
-    </p>
-    @else
-    <p class="follow_btn">
-      <button type="submit" class="btn follow">
-        <a href="/profile/{{ $users->id }}/follow">フォローする</a>
-      </button>
-    </p>
+      @if(Auth()->user()->isFollowing($users->id))
+      <div class="unfollow_btn">
+        <button type="submit" class="btn unfollow">
+          <a href="/profile/{{ $users->id }}/unfollow">フォロー解除</a>
+        </button>
+      </div>
+       @else
+        <div class="follow_btn">
+          <button type="submit" class="btn follow">
+            <a href="/profile/{{ $users->id }}/follow">フォローする</a>
+          </button>
+        </div>
+      @endif
     @endif
-    @endif -->
   </div>
 
   <div class="gray-line"></div>

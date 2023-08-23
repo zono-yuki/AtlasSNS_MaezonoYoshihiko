@@ -68,7 +68,7 @@ Route::group(['middleware' => 'auth'], function (){ //アクセス制限をか�
    Route::get('/profile/{id}/view', 'UsersController@profile');
 
  //作成中  フォロー解除するボタンを押した時
-  //  Route::get('/profile/{id}/unfollow','UsersController@unfollow');
+   Route::get('/profile/{id}/unfollow','UsersController@unfollow');
   //  Route::get('/profile/{id}/follow', 'UsersController@follow');
 
 
