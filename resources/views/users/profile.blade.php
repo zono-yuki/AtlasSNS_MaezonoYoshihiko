@@ -26,28 +26,34 @@
         <!-- <div>{{ $users-> bio}}</div> -->
         <!-- 入力できるようになると表示される -->
       </div>
+
+
+    </div>
+
+    <!-- ログインユーザーでなければ「フォローする」or「フォロー解除」ボタンを表示する -->
+    <div class="btn_box">
+      @if(!(Auth::user()== $users ))
+        @if(Auth()->user()->isFollowing($users->id))
+          <div class="unfollow_btn">
+            <button type="submit" class="btn_profile unfollow">
+              <a href="/profile/{{ $users->id }}/unfollow">フォロー解除</a>
+            </button>
+          </div>
+        @else
+          <div class="follow_btn">
+            <button type="submit" class="btn_profile follow">
+              <a href="/profile/{{ $users->id }}/follow">フォローする</a>
+            </button>
+          </div>
+        @endif
+      @endif
     </div>
 
 
 
 
-    <!-- ログインユーザーでなければ「フォローする」or「フォロー解除」ボタンを表示する -->
-    
-    @if(!(Auth::user()== $users ))
-      @if(Auth()->user()->isFollowing($users->id))
-      <div class="unfollow_btn">
-        <button type="submit" class="btn unfollow">
-          <a href="/profile/{{ $users->id }}/unfollow">フォロー解除</a>
-        </button>
-      </div>
-       @else
-        <div class="follow_btn">
-          <button type="submit" class="btn follow">
-            <a href="/profile/{{ $users->id }}/follow">フォローする</a>
-          </button>
-        </div>
-      @endif
-    @endif
+
+
   </div>
 
   <div class="gray-line"></div>
