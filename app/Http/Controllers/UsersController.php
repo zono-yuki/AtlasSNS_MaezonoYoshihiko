@@ -12,11 +12,12 @@ use App\Follow;
 class UsersController extends Controller
 {
     //プロフィール画面を表示させる処理
-    public function profile(Int $id){
+    public function profile(Int $user_Id){
 
         //リンク元のidを元にユーザー情報を取得する
-        $users = User::where('id', $id)->first();
+        $users = User::where('id', $user_Id)->first();
 
+        // dd($users);
 
         //リンク元ユーザーのidを元に投稿内容を取得する
         // $posts = Post::with('user')->whereIn('user_id', $users)->get;
@@ -37,8 +38,12 @@ class UsersController extends Controller
         public function unfollow(Int $user_Id) //$userIdは相手のid
         {
             // dd($user_Id);
+            //正常にidが出力される
+
             // フォローしているか
             $follower = auth()->user();
+            // dd($follower);
+
             $is_following = $follower->isFollowing($user_Id); //相手のidを飛ばして登録しているか確認する
 
             // フォローしていれば下記のフォロー解除を実行する
@@ -49,7 +54,7 @@ class UsersController extends Controller
                 $followedUser = User::find($user_Id); //ユーザーテーブルからその相手の情報を全部入れる。
                 $followedUserId = $followedUser->id; //その情報からidを取得する。
 
-                Follow::where([ //中間テーブルを探す
+                Follow::where([ //中間テーブルの中を探す
                     ['following_id', '=', $loggedInUserId], //自分のID
                     ['followed_id', '=', $followedUserId], //自分がフォローしている相手のID
                 ])

@@ -14,7 +14,7 @@
       <input type="search" name="keyword" class="form" placeholder="ユーザー名" value="@if(isset($keyword)){{ $keyword }}@endif
         ">
       <!-- もしキーワードが入力されていたら、キーワードを表示する。前の検索を残すため。 -->
-      <input type="image" src="images/search.png" class="search_btn" alt="検索ボタン"></input>
+      <input type="image" src="{{ asset('storage/images/search.png') }}" class="search_btn" alt="検索ボタン"></input>
       <!-- 検索ボタン -->
     </form>
   </div>
