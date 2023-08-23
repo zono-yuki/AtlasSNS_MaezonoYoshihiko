@@ -10,9 +10,8 @@
     <!-- アイコン表示 とりあえず、icon1.pngを表示-->
 
     <figure>
-      <img class="top-img" src="{{ asset('storage/images/icon2.png')}}" alt="アイコン">
+      <img class="top-img" src="{{ asset('storage/images/'.$users->images)}}" alt="アイコン">
     </figure>
-    <!-- <p>{{ $users->images }}</p> -->
 
     <div class="content-flex">
       <div class="name-flex">
@@ -33,30 +32,27 @@
     <!-- ログインユーザーでなければ「フォローする」or「フォロー解除」ボタンを表示する -->
     <div class="btn_box">
       @if(!(Auth::user()== $users ))
-        @if(Auth()->user()->isFollowing($users->id))
-          <div class="unfollow_btn">
-            <button type="submit" class="btn_profile unfollow">
-              <a href="/profile/{{ $users->id }}/unfollow">フォロー解除</a>
-            </button>
-          </div>
-        @else
-          <div class="follow_btn">
-            <button type="submit" class="btn_profile follow">
-              <a href="/profile/{{ $users->id }}/follow">フォローする</a>
-            </button>
-          </div>
-        @endif
+      @if(Auth()->user()->isFollowing($users->id))
+      <div class="unfollow_btn">
+        <button type="submit" class="btn_profile unfollow">
+          <a href="/profile/{{ $users->id }}/unfollow">フォロー解除</a>
+        </button>
+      </div>
+      @else
+      <div class="follow_btn">
+        <button type="submit" class="btn_profile follow">
+          <a href="/profile/{{ $users->id }}/follow">フォローする</a>
+        </button>
+      </div>
+      @endif
       @endif
     </div>
-
-
-
-
-
-
   </div>
 
   <div class="gray-line"></div>
+
+
+
 
 
 </div>

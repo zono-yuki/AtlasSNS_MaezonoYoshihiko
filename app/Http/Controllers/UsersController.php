@@ -16,7 +16,7 @@ class UsersController extends Controller
 
         //リンク元のidを元にユーザー情報を取得する
         $users = User::where('id', $id)->first();
-        // dd($users);
+
 
         //リンク元ユーザーのidを元に投稿内容を取得する
         // $posts = Post::with('user')->whereIn('user_id', $users)->get;
@@ -32,9 +32,11 @@ class UsersController extends Controller
     }
 
     // フォローを解除する（相手プロフィール画面でのフォロー解除ボタン）
-    //フォロー解除///////
+
+    //フォロー解除ボタン///////
         public function unfollow(Int $user_Id) //$userIdは相手のid
         {
+            // dd($user_Id);
             // フォローしているか
             $follower = auth()->user();
             $is_following = $follower->isFollowing($user_Id); //相手のidを飛ばして登録しているか確認する
@@ -56,7 +58,7 @@ class UsersController extends Controller
             return redirect('/profile/{$user_Id}/view');
         }
 
-    //フォローする///////（相手プロフィール画面でのフォローするボタン）$userIdは相手のid
+    //フォローするボタン///////（相手プロフィール画面でのフォローするボタン）$userIdは相手のid
     public function follow(Int $user_Id)
     {
         // フォローしているか

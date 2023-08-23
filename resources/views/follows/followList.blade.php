@@ -13,7 +13,7 @@
     <!-- アイコンひとまとめ -->
     <figure class="follow_icon">
       <a href="/profile/{{ $follow->id}}/view">
-        <img src="{{ asset('storage/images/icon1.png')}} " alt=" フォローアイコン">
+        <img src="{{ asset('storage/images/'.$follow->images)}} " alt=" フォローアイコン">
       </a>
 
 
@@ -32,9 +32,8 @@
       <!-- アイコン表示 -->
       <figure>
         <a href="/profile/{{ $post->user->id}}/view">
-          <img class="top-img" src="{{ asset('storage/images/icon1.png')}}" alt="アイコン">
+          <img class="top-img" src="{{ asset('storage/images/'.$post->user->images)}}" alt="アイコン">
         </a>
-
       </figure>
 
 

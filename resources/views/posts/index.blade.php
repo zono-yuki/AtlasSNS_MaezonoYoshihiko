@@ -18,9 +18,8 @@
 <!-- 投稿を入力するところ -->
 {!! Form::open(['url' => '/create']) !!}
 
-<!-- シンボリックリンクできている。明日は更新日時と、検索ページレイアウト、ユーザーにアイコンを登録する -->
 <div class="flex-post">
-   <img src="{{ asset('storage/images/icon1.png')}}">
+   <img src="{{ asset('storage/images/'.$user->images)}}">
    <label for="comment"></label>
    <textarea id="comment" name="post" cols="100" rows="3" placeholder="投稿内容を入力してください。"></textarea>
    <input type="image" src="images/post.png" class="submit_btn" alt="送信する">
@@ -38,8 +37,11 @@
    <ul>
       <li class="post-block">
          <figure>
-            <img class="top-img" src="{{ asset('storage/images/icon1.png')}}" alt="アイコン">
+            <a href="/profile/{{ $post->user->id}}/view">
+               <img class="top-img" src="{{ asset('storage/images/'.$post-> user ->images)}}" alt="アイコン">
+            </a>
          </figure>
+
          <div class="post-content">
             <div>
                <div class="post-name">
@@ -65,7 +67,7 @@
                <!--削除ボタン-->
                <li>
                   <a href="/post/{{ $post->id }}/delete">
-                     <input type="image" src="images/trash.png" class="post_btn2" alt="削除ボタン" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
+                     <input type="image" src="{{ asset('storage/images/trash.png')}}" class="post_btn2" alt="削除ボタン" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
                   </a>
                </li>
             </ul>

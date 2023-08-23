@@ -45,7 +45,11 @@
   <ul class="search-users">
 
     <!-- 登録者アイコン -->
-    <li class="search-icon"><img src="{{ asset('storage/images/icon1.png')}}" alt="ユーザーアイコン"></li>
+    <li class="search-icon">
+      <a href="/profile/{{ $users->id}}/view">
+        <img src="{{ asset('storage/images/'.$users->images) }}" alt="ユーザーアイコン">
+      </a>
+    </li>
     <!-- 登録者名 -->
     <li class="search-name">{{$users->username}}</li>
 
