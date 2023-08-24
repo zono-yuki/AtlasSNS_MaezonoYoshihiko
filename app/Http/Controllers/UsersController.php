@@ -38,7 +38,6 @@ class UsersController extends Controller
         public function unfollow(Int $user_Id) //$userIdは相手のid
         {
             // dd($user_Id);
-            //正常にidが出力される
 
             // フォローしているか
             $follower = auth()->user();
@@ -60,7 +59,10 @@ class UsersController extends Controller
                 ])
                     ->delete();
             }
-            return redirect('/profile/{$user_Id}/view');
+
+            return redirect(route('profile.index',[//profileページの再読み込み
+                'id' => $user_Id ,
+            ]));
         }
 
     //フォローするボタン///////（相手プロフィール画面でのフォローするボタン）$userIdは相手のid
@@ -83,8 +85,11 @@ class UsersController extends Controller
                 'following_id' => $loggedInUserId, //自分のIDを登録する。
                 'followed_id' => $followedUserId, //フォローする相手のIDを登録する。
             ]);
-            return redirect('/profile/{$user_Id}/view'); // フォロー後に元のページにリダイレクト
         }
+
+        return redirect(route('profile.index', [ //profileページの再読み込み
+            'id' => $user_Id,
+        ]));
     }
 
 

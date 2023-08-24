@@ -60,21 +60,23 @@ Route::group(['middleware' => 'auth'], function (){ //アクセス制限をか�
    Route::post('/post/{id}/update','PostsController@update');//投稿の更新 追加
 
 
-////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////プロフィール///////////////////////////////////////////////////////////////////
 
  //プロフィール画面
    Route::get('/profile','UsersController@profile');
 
    //フォローリストのアイコンをクリックしたらプロフィール画面に飛ぶ。
-   Route::get('/profile/{id}/view', 'UsersController@profile');
+   Route::get('/profile/{id}/view', 'UsersController@profile')->name('profile.index');
 
- //作成中  フォロー解除するボタンを押した時
+ //フォロー解除するボタンを押した時
    Route::get('/profile/{id}/unfollow','UsersController@unfollow');
-  //  Route::get('/profile/{id}/follow', 'UsersController@follow');
+
+ //フォローするボタンを押した時
+   Route::get('/profile/{id}/follow', 'UsersController@follow');
 
 
 
-////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////ユーザー検索//////////////////////////////////////////////////////////////////
  //ユーザー検索画面
    Route::get ('/search','UsersController@search');
    Route::post('/search', 'UsersController@search');
