@@ -51,7 +51,35 @@
 
   <div class="gray-line"></div>
 
+  @foreach($posts as $post)
+  <!-- 投稿を表示する -->
+  <div>
+    <ul>
+      <li class="post-block-profile">
+        <figure>
+          <a href="/profile/{{ $post->user->id}}/view">
+            <img class="top-img" src="{{ asset('storage/images/'.$post-> user ->images)}}" alt="アイコン">
+          </a>
+        </figure>
 
+        <div class="post-content">
+          <div>
+            <div class="post-name">
+              {{ $post-> user ->username }}
+              <!-- ユーザー名はpostsテーブルとusersテーブルをリレーションで紐づけてから持ってくる？ -->
+            </div>
+            <div>
+              {{ $post-> updated_at }}
+            </div>
+          </div>
+          <div>
+            {{ $post-> post }}
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  @endforeach
 
 
 

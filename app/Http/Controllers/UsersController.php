@@ -16,20 +16,14 @@ class UsersController extends Controller
 
         //リンク元のidを元にユーザー情報を取得する
         $users = User::where('id', $user_Id)->first();
-
         // dd($users);
-
         //リンク元ユーザーのidを元に投稿内容を取得する
-        // $posts = Post::with('user')->whereIn('user_id', $users)->get;
-        // $posts = Post::with('user')->whereIn('id', $id )->get;
+        $posts = Post::with('user')->Where('user_id', $user_Id)->latest()->get();
 
         // dd($posts);
+        //変数を取得確認してからcompactで送る。
 
-        // return view('users.profile', ['user_id' => $id ]) ->with('users', $users)->with('posts',$posts);
-        // return view('users.profile', ['user_id' => $id])->with('users', $users);
-        return view('users.profile')->with('users', $users);
-
-
+        return view('users.profile',compact('users','posts'));
     }
 
     // フォローを解除する（相手プロフィール画面でのフォロー解除ボタン）
