@@ -13,7 +13,7 @@
     <!-- アイコンひとまとめ -->
     <figure class="follow_icon">
       <a href="/profile/{{ $follower->id}}/view">
-       <img src="{{ asset('storage/images/'.$follower->images)}} " alt=" フォローアイコン">
+        <img src="{{ asset('storage/images/'.$follower->images)}} " alt=" フォローアイコン">
       </a>
       <!-- <img src="{r{ asset('storage/images/' .$post->user->images)}} " alt=" フォローアイコン"> -->
 
@@ -50,7 +50,7 @@
           </div>
         </div>
         <div>
-          {{ $post->post }}
+          {!! nl2br($post-> post) !!}
         </div>
       </div>
 

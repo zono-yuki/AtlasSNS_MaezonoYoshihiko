@@ -48,7 +48,7 @@
           </div>
         </div>
         <div>
-          {{ $post->post }}
+          {!! nl2br($post-> post) !!}
         </div>
       </div>
 
