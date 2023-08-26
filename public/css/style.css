@@ -210,6 +210,7 @@ button{
 
 /* つぶやき送信ボタン */
 .submit_btn{
+  margin-top: 80px;
   width: 60px;
   height: auto;
   border-radius:15px;
@@ -222,7 +223,7 @@ button{
 }
 
 .flex-post img{
-  padding-left: 20px;
+  padding-left: 150px;
 }
 
 .flex-post textarea{
@@ -236,14 +237,14 @@ button{
 }
 /* 投稿編集ボタン */
 .post_btn1{
-  width:30px;
+  width:47px;
   height: auto;
   cursor:pointer;
 }
 
 /* 投稿削除ボタン */
 .post_btn2{
-  width:30px;
+  width:47px;
   height: auto;
   cursor:pointer;
   transition: .3s;
@@ -424,7 +425,7 @@ height: auto;
 .trash-box{
 }
 .post-block{
-  padding: 30px 30px 30px 200px;
+  padding: 20px 30px 20px 200px;
   width: 100%;
   text-decoration: none;
   /* border-bottom:3px solid #DCDCDC; */
@@ -453,6 +454,10 @@ height: auto;
 .button-flex{
   display: flex;
   justify-content:end;
+}
+
+.openModal{
+  background-color: white;
 }
 
 /* フォローリスト */

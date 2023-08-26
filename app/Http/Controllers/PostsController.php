@@ -23,9 +23,13 @@ class PostsController extends Controller
         $username =Auth::user()->username;
         $username = $user->username;
 
+        //ログインユーザーがフォローしているユーザーのidを取得して投稿を取得する&ログインユーザーの投稿を取得する。
+        $following_id = Auth::user()->follows()->pluck('followed_id');
+        // dd($following_id);
+        $posts = Post::with('user')->WhereIn('user_id', $following_id)->orWhere('user_id', $user->id)->latest()->get();
 
         //Postテーブルから降順で全てのデータを取得する。
-        $posts = Post::orderBy('updated_at','desc')->get();
+        // $posts = Post::orderBy('updated_at','desc')->get();
 
         return view('posts.index',compact('posts','user','username'));//$postsを送るが、postsと書く。
     }

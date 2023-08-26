@@ -55,6 +55,8 @@
             <div>
                {{ $post-> post }}
             </div>
+
+            @if($post->user->id === $user->id)
             <ul class="button-flex">
                <!-- 編集ボタン-->
                <li>
@@ -74,6 +76,7 @@
                   </a>
                </li>
             </ul>
+            @endif
 
          </div>
       </li>
