@@ -28,7 +28,7 @@ class PostsController extends Controller
         // dd($following_id);
         $posts = Post::with('user')->WhereIn('user_id', $following_id)->orWhere('user_id', $user->id)->latest()->get();
 
-        //Postテーブルから降順で全てのデータを取得する。
+        //新しい順に表示するために並び替える
         // $posts = Post::orderBy('updated_at','desc')->get();
 
         return view('posts.index',compact('posts','user','username'));//$postsを送るが、postsと書く。

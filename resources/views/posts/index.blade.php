@@ -53,7 +53,7 @@
                </div>
             </div>
             <div>
-               {{ $post-> post }}
+               {!! nl2br($post-> post) !!}
             </div>
 
             @if($post->user->id === $user->id)

@@ -19,10 +19,9 @@ class UsersController extends Controller
         // dd($users);
         //リンク元ユーザーのidを元に投稿内容を取得する
         $posts = Post::with('user')->Where('user_id', $user_Id)->latest()->get();
-
         // dd($posts);
-        //変数を取得確認してからcompactで送る。
 
+        
         return view('users.profile',compact('users','posts'));
     }
 

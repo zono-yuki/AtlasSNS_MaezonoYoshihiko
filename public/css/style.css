@@ -11,6 +11,7 @@ header{
     justify-content:space-between;
     width:100%;
     line-height:60px;
+    height: auto;
 }
 
 
@@ -38,6 +39,7 @@ header li a:hover{
 
 /* main content */
 #row{
+    width: 100%;
     display: flex;
     flex-flow: row wrap;
 }
