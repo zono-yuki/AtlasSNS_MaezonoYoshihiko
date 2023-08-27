@@ -47,7 +47,7 @@
                     <h4 class="accordion-title js-accordion-title">メニュー</h4>
                     <div class="accordion-content">
                         <p><a href="{{ asset('/top') }}">HOME</a></p>
-                        <p><a href="{{ asset('/profile') }}">プロフィール編集</a></p>
+                        <p><a href="{{ asset('/profile/update') }}">プロフィール編集</a></p>
                         <p><a href="{{ asset('/logout') }}">ログアウト</a></p>
                     </div>
 

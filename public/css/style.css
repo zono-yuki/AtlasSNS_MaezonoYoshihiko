@@ -569,3 +569,42 @@ height: auto;
   border-bottom:1px solid #888;
   display:flex;
 }
+
+
+/* プロフィール編集ページ */
+
+.form-group{
+  display: flex;
+  margin-left: 330px;
+}
+
+.profile_icon{
+  margin-top: 70px;
+}
+
+.profile-item{
+margin-top: 80px;
+margin-left: 50px;
+}
+
+.profile-items{
+ display: flex;
+ align-items: center;
+ justify-content:flex-start;
+ margin-bottom: 50px;
+}
+
+.profile-item p{
+ font-size: 28px;
+ width: 330px;
+}
+
+.profile-item input{
+  font-size: 28px;
+  margin-left: 40px;
+}
+
+.items-input{
+  display: inline-block;
+  width: 70%;
+}

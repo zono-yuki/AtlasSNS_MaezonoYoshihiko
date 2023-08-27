@@ -11,7 +11,11 @@ use App\Follow;
 
 class UsersController extends Controller
 {
-    //プロフィール画面を表示させる処理
+    public function profileupdate(Request $request){
+        return view('users.profileUpdate');
+    }
+
+    //他ユーザーのプロフィール画面を表示させる処理
     public function profile(Int $user_Id){
 
         //リンク元のidを元にユーザー情報を取得する
@@ -21,7 +25,7 @@ class UsersController extends Controller
         $posts = Post::with('user')->Where('user_id', $user_Id)->latest()->get();
         // dd($posts);
 
-        
+
         return view('users.profile',compact('users','posts'));
     }
 
@@ -80,7 +84,7 @@ class UsersController extends Controller
             ]);
         }
 
-        return redirect(route('profile.index', [ //profileページの再読み込み
+        return redirect(route('profile.index', [ //profileページの再読み込み、ルート名入れてそこにidを飛ばす。
             'id' => $user_Id,
         ]));
     }
