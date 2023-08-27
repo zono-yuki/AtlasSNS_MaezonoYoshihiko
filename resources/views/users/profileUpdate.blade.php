@@ -55,7 +55,10 @@
     </div>
 
     <!-- 送信ボタン -->
-    <button type="submit" class="btn btn-success pull-right">更新</button>
+    <div class="btn-update">
+     <button type="submit" class="btn btn-update_color">更新</button>
+    </div>
+
 
   {!! Form::close() !!}
 
