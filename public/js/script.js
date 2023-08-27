@@ -14,7 +14,7 @@ var modal = document.getElementById("myModal");
 var span = document.getElementById("closeModal");
 
 $(".openModal").each(function () {//$(".openModal")これだけで上と同じみたいな感じでに同時に変数を定義している。.each(function ()つぶやきがある数、.openModalはあるのでそれぞれを使えるように呼び出している。
-  
+
   $(this).on('click', function () {//ボタンを押した時の処理
     var post_id = $(this).attr('post_id');
     $('#update_id').val(post_id);//idを受け取る、idをhiddenでcontllorerに渡す。
@@ -39,3 +39,11 @@ window.onclick = function(event) {
   }
 }
 //////////////////////////////////////////////////////////////////////////////////////////
+// const fileSelect = document.getElementById("fileSelect");
+// const fileElem = document.getElementById("fileElem");
+
+// fileSelect.addEventListener("click", (e) => {
+//   if (fileElem) {
+//     fileElem.click();
+//   }
+// }, false);

@@ -46,7 +46,20 @@
 
        <div class="profile-items">
          <p>icon image</p>
-         <input type="file" class="items-input" name="name" ,null>
+
+           <!-- <input type="file" id="fileElem" multiple style="display:none" />
+           <button id="fileSelect" type="button">
+            ファイルを選択
+           </button> -->
+
+           <div id="app">
+            <label class="file-label">
+             <input type="file" name="file">ファイルを選択
+            </label>
+           </div>
+
+
+
        </div>
 
      </div>
