@@ -29,7 +29,7 @@
 
 {!! Form::close() !!}
 
-<div class="gray-line"></div>
+<div class="gray-line-top"></div>
 
 <!-- 追加  つぶやきを全部表示する処理 -->
 @foreach($posts as $post)

@@ -75,10 +75,13 @@
         <!-- 右側 -->
         <div id="side-bar">
             <div id="confirm">
-                <p class="side-username"> {{ Auth::user() -> username }} さんの</p>
+                <div class="side-top">
+                  <p class="side-username"> {{ Auth::user() -> username }} さんの</p>
+                </div>
+
 
                 <div class="side-flex">
-                    <p>フォロー数</p>
+                    <p class="side-username">フォロー数</p>
                     <p>{{ Auth::user()->follows()->count() }}人</p>
                 </div>
                 <div class="side-right">
@@ -86,7 +89,7 @@
                 </div>
 
                 <div class="side-flex">
-                    <p>フォロワー数</p>
+                    <p class="side-username">フォロワー数</p>
                     <p>{{ Auth::user()->follower()->count() }}人</p>
                 </div>
                 <div class="side-right">

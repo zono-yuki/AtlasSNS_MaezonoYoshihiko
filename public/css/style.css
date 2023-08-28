@@ -13,8 +13,10 @@ header{
     line-height:60px;
     height: auto;
 }
-
-
+/* textareaのプレースフォルダ */
+textarea::placeholder {
+   color: #bbb;
+}
 
 header ul{
   padding:0 30px;
@@ -53,19 +55,23 @@ header li a:hover{
 }
 
 #confirm{
-  padding-top: 20px;
+  padding-top: 30px;
   border-bottom: 1px solid #727272;
+}
+
+.side-top{
+  margin-bottom: 20px;
 }
 
 .side-flex{
   display: flex;
   align-items: center;
-  justify-content:space-around;
-  padding-top:20px;
+  padding-top:10px;
 }
 
 .side-username{
   padding-left: 22px;
+  width: 140px;
 }
 
 .side-right{
@@ -81,9 +87,17 @@ button{
 
 
 #comment{
-  margin: 30px 10px 30px 30px;
+  margin: 65px 10px 0px 20px;
   /* padding-top: 40px; */
-  font-size: 15px;
+  font-size: 20px;
+  /* 枠線を消す */
+    border: none;
+
+    /* 右下の//(サイズ変更機能)を消す */
+    resize: none;
+
+    /* フォーカスした際の青い枠線を消す */
+    outline: none;
 }
 
 ::placeholder{
@@ -268,7 +282,7 @@ ul{
   display: inline-block;
   text-decoration: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 8px;
   color: #fff;
   margin: 20px;
   transition: 0.3s;
@@ -280,6 +294,9 @@ ul{
 
 .btn_base{
   background: #0079c1;
+  width:130px;
+  height: auto;
+  text-align: center;
 }
 
 .btn_base a{
@@ -338,18 +355,20 @@ ul{
 .search-top-flex{
   display: flex;
   align-items: center;
-  justify-content: space-around;
   width: 100%;
+  height: auto;
+  padding-left: 70px;
 
 }
 
 .keyword-box{
-  padding-top: 30px;
-  padding-right: 70px;
+  margin-top: 30px;
+  margin-right: 70px;
+  margin-left: 270px;
 }
 
 .keyword{
-  font-size: 25px;
+  font-size: 30px;
 }
 .search-form-001{
   padding-top: 30px;
@@ -360,14 +379,16 @@ ul{
 }
 
 .form{
+  margin-left: 10px;
   width:300px;
-  height: 35px;
+  height: 50px;
   font-size: 20px;
 }
 
 .search_btn{
- margin-left: 10px;
- height: 38px;
+ margin-left: 20px;
+ width:50px;
+ height: 50px;
  border-radius: 7px;
  cursor: pointer;
 }
@@ -396,9 +417,6 @@ ul{
 }
 
 /* textareaにフォーカスしたら色を変える。 */
-.form:focus{
-  background-color: #bde9ba;
-}
 
 .search-users{
 
@@ -480,15 +498,22 @@ height: auto;
 .follow_icon{
   padding-right: 15px;
 }
+/* ///////////////////////////////////////////// */
+.gray-line-top{
+  background: #DCDCDC;
+  /* max-width: 100%; */
+  width: 100%;
+  height: 8px;
+  margin-top: 20px;
+}
 
 .gray-line{
   background: #DCDCDC;
   /* max-width: 100%; */
   width: 100%;
   height: 8px;
-  margin-top: 30px;
+  margin-top: 50px;
 }
-
 
 /* ////////////////////他ユーザーのprofileページ */
 
@@ -651,7 +676,7 @@ input[type="file"] {
 /* /////////////// */
 
 .btn-update{
-  text-align: center;
+  margin-left: 570px;
 }
 
 .btn-update_color{
@@ -661,6 +686,7 @@ input[type="file"] {
   border-radius: 15px;
   transition: 0.3s;
   cursor: pointer;
+
 }
 
 .btn-update_color:hover{
