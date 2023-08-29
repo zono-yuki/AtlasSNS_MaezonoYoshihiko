@@ -63,7 +63,8 @@ header li a:hover{
 }
 #container{
     flex: 0 0 80%;
-    width: 70%;
+    width: 100%;
+    min-height: 100vh;
 }
 #side-bar{
     flex: 0 0 19%;

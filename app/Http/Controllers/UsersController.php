@@ -20,32 +20,42 @@ class UsersController extends Controller
     //自分のプロフィールを更新する処理
     public function update(UserFormRequest $request)
     {
+        // dd($request);
+        //変数に入れていく処理。
         $id = auth()->user()->id;
         $upUsername = $request->input('username');
         $upMail = $request->input('mail');
         $upPassword = $request->input('password');
         $upBio = $request->input('bio');
-        // $upImages = $request->file('icon_image')->update('public/storage/images/');
-        // $filename = $request->image->getClientOringin;
 
 
-    //画像が入力されていた場合のみ更新
-        if($request->filled('icon_image')){
-            $file = $request->file('icon_image')->store('public')->getClientOriginalName();
-            $path = Storage::url($file); //画像のパスを生成
-            $images = $path;
+     //画像が入力されていた場合のみ更新
+        if($request->hasFile('icon_image')){
+
+            //ファイルの中のicon画像の名前を取得する。
+            $image = $request->file('icon_image')->getClientOriginalName();
+
+            //storeAs()関数で、特定の名前をつけて変数に保存する。空白にする。
+            $file = $request->file('icon_image')->storeAs('',$image);
+
+            User::where('id',$id)->update([
+                'images' => $file,
+            ]);
+
         }
+
 
         User::where('id', $id)->update([
             'username' => $upUsername,
             'mail' => $upMail,
             'password' => bcrypt($upPassword),
             'bio' => $upBio,
-            // 'images' => $images,
         ]);
 
         return redirect('/top');
     }
+
+
 
     //他ユーザーのプロフィール画面を表示させる処理
     public function profile(Int $user_Id){

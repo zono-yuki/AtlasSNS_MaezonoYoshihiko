@@ -24,13 +24,14 @@ class UserFormRequest extends FormRequest
      */
     public function rules()
     {
+
         return [
             //ログインユーザーのプロフィール更新時のバリデーションルール
             //'項目名' => '検証ルール｜検証ルール｜検証ルール',
             'username' => 'required|string|min:2|max:12',
 
             //★ここを、自分のメールアドレスを除く同じアドレスがあったらはじくようにする。this->id.',id',???
-            'mail' => 'required|string|min:5|max:40|email|unique:users,mail,'.$this->id.',id', //usersテーブルのmailカラムで一意メールアドレスの形式であるかどうか
+            'mail' => 'required|string|min:5|max:40|email|unique:users,mail,'. auth()->user() ->id.',id', //usersテーブルのmailカラムで一意メールアドレスの形式であるかどうか
 
             'password' => 'required|regex:/^[a-zA-Z0-9]+$/|min:8|max:20|confirmed:password',
             'password_confirmation' => 'required|regex:/^[a-zA-Z0-9]+$/|min:8|max:20',
