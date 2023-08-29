@@ -59,10 +59,14 @@
             <!-- ログインユーザーのアイコン -->
             <!-- もしデフォルトのアイコンだった場合 -->
             @if(auth::user() -> images == 'icon1.png' )
-            <li class="header-icon"><img src="{{ asset('images/'.auth::user() ->images) }}"></li>
+            <a href="/profile/{{ auth::user()->id}}/view">
+                <li class="header-icon"><img src="{{ asset('images/'.auth::user() ->images) }}"></li>
+            </a>
             <!-- public/images -->
             @else
-            <li class="header-icon"><img src="{{ asset('storage/images/'.auth::user() ->images) }}"></li>
+            <a href="/profile/{{ auth::user()->id}}/view">
+                <li class="header-icon"><img src="{{ asset('storage/images/'.auth::user() ->images) }}"></li>
+            </a>
             @endif
         </ul>
     </header>

@@ -19,7 +19,19 @@
 {!! Form::open(['url' => '/create']) !!}
 
 <div class="flex-post">
-   <img src="{{ asset('storage/images/'.$user->images)}}">
+
+
+   @if($user -> images == 'icon1.png' )
+   <a href="/profile/{{ $user->id}}/view">
+      <img src="{{ asset('images/'.$user-> images) }}">
+      <!-- public/images もともとあった場所から持ってくる。 -->
+   </a>
+   @else
+   <!-- icon1でなければ、 -->
+   <a href="/profile/{{ $user->id}}/view">
+      <img src=" {{ asset('storage/images/'.$user->images)}}">
+   </a>
+   @endif
    <label for="comment"></label>
    <textarea id="comment" name="post" cols="100" rows="3" placeholder="投稿内容を入力してください。"></textarea>
    <input type="image" src="{{ asset('storage/images/post.png') }}" class="submit_btn" alt="送信する">
