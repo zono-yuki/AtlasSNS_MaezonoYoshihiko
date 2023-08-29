@@ -26,18 +26,25 @@ class UsersController extends Controller
         $upPassword = $request->input('password');
         $upBio = $request->input('bio');
         // $upImages = $request->file('icon_image')->update('public/storage/images/');
-        $filename = $request->image->getClientOringin;
+        // $filename = $request->image->getClientOringin;
+
+
+    //画像が入力されていた場合のみ更新
+        if($request->filled('icon_image')){
+            $file = $request->file('icon_image')->store('public')->getClientOriginalName();
+            $path = Storage::url($file); //画像のパスを生成
+            $images = $path;
+        }
 
         User::where('id', $id)->update([
-            'username' => $upUsername ,
-            'mail' => $upMail ,
+            'username' => $upUsername,
+            'mail' => $upMail,
             'password' => bcrypt($upPassword),
             'bio' => $upBio,
-            'images' => $upImages,
+            // 'images' => $images,
         ]);
 
         return redirect('/top');
-
     }
 
     //他ユーザーのプロフィール画面を表示させる処理
