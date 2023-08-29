@@ -7,12 +7,37 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Post;
 use App\Follow;
+use App\Http\Requests\UserFormRequest;//UserFormRequestファイルを作ったのでバリデーション処理を使えるようにする。
 
 
 class UsersController extends Controller
 {
+    //自分のプロフィール編集画面を表示する処理
     public function profileupdate(Request $request){
         return view('users.profileUpdate');
+    }
+
+    //自分のプロフィールを更新する処理
+    public function update(UserFormRequest $request)
+    {
+        $id = auth()->user()->id;
+        $upUsername = $request->input('username');
+        $upMail = $request->input('mail');
+        $upPassword = $request->input('password');
+        $upBio = $request->input('bio');
+        // $upImages = $request->file('icon_image')->update('public/storage/images/');
+        $filename = $request->image->getClientOringin;
+
+        User::where('id', $id)->update([
+            'username' => $upUsername ,
+            'mail' => $upMail ,
+            'password' => bcrypt($upPassword),
+            'bio' => $upBio,
+            'images' => $upImages,
+        ]);
+
+        return redirect('/top');
+
     }
 
     //他ユーザーのプロフィール画面を表示させる処理

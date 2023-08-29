@@ -49,7 +49,8 @@
                   <!-- ユーザー名はpostsテーブルとusersテーブルをリレーションで紐づけてから持ってくる？ -->
                </div>
                <div>
-                  {{ $post-> updated_at }}
+                  <!-- 秒数消す -->
+                  {{ date("Y-m-d H:i",strtotime($post->updated_at))}}
                </div>
             </div>
             <div>

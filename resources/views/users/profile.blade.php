@@ -21,7 +21,7 @@
 
       <div class="bio-flex">
         <div class="bio-title">bio</div>
-        <div class="bio-post">SNSシステムを作成しています。</div>
+        <div class="bio-post">{{ $users->bio }}</div>
         <!-- <div>{{ $users-> bio}}</div> -->
         <!-- 入力できるようになると表示される -->
       </div>

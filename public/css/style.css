@@ -19,6 +19,10 @@ textarea::placeholder {
    color: #bbb;
 }
 
+li{
+  list-style: none;
+}
+
 header ul{
   padding:0 30px;
   display: flex;
@@ -38,21 +42,34 @@ header li a:hover{
 
 .top{
   display: flex;
+  /* position: relative; */
+  align-items: center;
+  justify-content: center;
 }
 
+.header-icon{
+  margin-top: 30px;
+}
+
+.login-name{
+  color: #fff;
+  position: relative;
+}
 /* main content */
 #row{
     width: 100%;
     display: flex;
-    flex-flow: row wrap;
+    /* flex-flow: row wrap; */
 }
 #container{
     flex: 0 0 80%;
-    /* width: 100%; */
+    width: 70%;
 }
 #side-bar{
     flex: 0 0 19%;
     border-left: 1px solid #727272;
+    min-height:100vh;
+    width: 30%;
 }
 
 #confirm{
@@ -115,103 +132,82 @@ button{
   padding-top: 20px;
 }
 /* アコーディオンメニュー【Atlasトップページ】 */
-
-.accordion-container {
+.accordion-item{
   position: relative;
-  width: 100%;
-  border: 1px solid #0079c1;
-  border-top: none;
-  outline: 0;
-  cursor: pointer
 }
 
-.accordion-container .accordion-title {
-  display: block;
-  position: relative;
-  margin: 0;
-  padding: 0.625em 0.625em 0.625em 2em;
-  font-size: 1.25em;
-  font-weight: normal;
+.accordion-title {
   color: #fff;
-  background: #000;
   cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px;
 }
-
-.accordion-container .accordion-title:hover,
-.accordion-container .accordion-title:active,
-.accordion-container .content-entry.open .accordion-title {
-  background-color: #00aaa7;
-  color: white;
-}
-
-.accordion-container .accordion-title:hover i:before,
-.accordion-container .accordion-title:hover i:active,
-.accordion-container .content-entry.open i {
-  color: white;
-}
-
-.accordion-title{
-  position: relative;
-}
-
-.accordion-title:after {
-  content: "";
-  position: absolute;
-  right: 25px;
-  top: 38%;
-  transition: all 0.2s ease-in-out;
-  display: block;
-  width: 8px;
-  height: 8px;
-  border-top: solid 2px #fff;
-  border-right: solid 2px #fff;
-  -webkit-transform: rotate(135deg);
-  transform: rotate(135deg);
-}
-
-.accordion-title.open:after {
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  top: 45%;
-}
-
-/* .accordion-content {
-  display: none;
-  padding-left: 2.3125em;
-
-} */
-
 .accordion-content {
+  text-align: center;
   display: none;
-  position: relative;
-  margin-bottom: 0;
-  padding: 0.625em 0.625em 0.625em 2em;
-  font-size: 1.25em;
-  font-weight: normal;
-  color: #fff;
-  background: #000;
-  cursor: pointer;
-
+  position: absolute;
+  padding:0;
+  width: 390px;
+  height: auto;
+  background: #fff;
+  top:73px;
+  left: -210px;
+  line-height: 1.0;
+  border: solid 4px blue ;
+}
+.accordion-content p {
+  font-size: 30px;
+  display: inline-block;
+  height: 80px;
+  padding-top:30px;
+  vertical-align: middle;
 }
 
-.accordion-content p{
-    margin-bottom: 20px;
+.accordion-content a:hover{
+  background: red;
+  text-decoration: none;
+  color: #fff;
 }
 
 .accordion-content p a{
-    color:#fff;
+  display: inline-block;
+  color: gray;
+  width:380px;
+  vertical-align: middle;
+  text-decoration: none;
+  /* padding: 40px; */
 }
 
-.accordion-content p a:hover{
-    color:#00aaa7;
-    font-size:22px;
+
+/* 矢印 */
+.accordion-title {
+  position: relative;
+}
+.accordion-title::after {
+  border-right: solid 2px #fff;
+  border-top:  solid 2px #fff;
+  content: "";
+  display: block;
+  height: 9px;
+  /* position: absolute; */
+  right: 25px;
+  top: 38%;
+
+  /* 最初の矢印は下向き */
+  transform: rotate(135deg);
+  transition: transform .3s ease-in-out, top .3s ease-in-out;
+  width: 9px;
 }
 
-/* CSS for CodePen */
-.accordion-container {
-  width: 300px;
-  margin: 1.875em auto;
+
+.accordion-title.open::after {
+  /* 矢印の位置を少し変える */
+  top: 45%;
+  /* 矢印を上向きに変える */
+  transform: rotate(-45deg);
 }
+
+
 
 /* ここまでがアコーディオンメニュー */
 
@@ -465,9 +461,7 @@ height: auto;
   justify-content:space-between;
 }
 
-.login-name{
-  color: #fff;
-}
+
 .post-name{
   margin-bottom:15px;
 }
@@ -486,7 +480,7 @@ height: auto;
   display: flex;
   align-items: center;
   justify-content: start;
-  padding-top:40px;
+  padding-top:20px;
 }
 
 .list-title{
@@ -496,8 +490,18 @@ height: auto;
   padding-left: 150px;
 }
 
+.max-row{
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+}
+
 .follow_icon{
+  text-align: center;
+  align-items: center;
   padding-right: 15px;
+  padding-bottom: 25px;
+  vertical-align: middle;
 }
 /* ///////////////////////////////////////////// */
 .gray-line-top{

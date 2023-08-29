@@ -55,7 +55,7 @@ class PostsController extends Controller
             ]);
             //変数をデータベースのカラムに登録していく処理
 
-            return redirect('top');
+            return redirect('/top');
 
             //ここまでがpostの場合の処理
         }

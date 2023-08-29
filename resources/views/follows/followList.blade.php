@@ -8,18 +8,25 @@
   <h2 class="list-title">Follow List</h2>
 
   <!-- $followsはフォローしている人を全部コントローラーから取得して持ってきている -->
-  @foreach ($follows as $follow)
-  <div>
-    <!-- アイコンひとまとめ -->
-    <figure class="follow_icon">
-      <a href="/profile/{{ $follow->id}}/view">
-        <img src="{{ asset('storage/images/'.$follow->images)}} " alt=" フォローアイコン">
-      </a>
 
-
-    </figure>
+  <!-- アイコンが多くなったら折り返して表示する。 -->
+  <div class="max-row">
+    @foreach ($follows as $follow)
+    <div class="max-row">
+      <!-- アイコンひとまとめ -->
+      <figure class="follow_icon">
+        <a href="/profile/{{ $follow->id}}/view">
+          @if($follow -> images == 'icon1.png' )
+          <li class="header-icon"><img src="{{ asset('images/'.$follow->images) }}"></li>
+          <!-- public/images -->
+          @else
+          <li class="header-icon"><img src="{{ asset('storage/images/'.$follow ->images) }}"></li>
+          @endif
+        </a>
+      </figure>
+    </div>
+    @endforeach
   </div>
-  @endforeach
 </div>
 
 <div class="gray-line"></div>
@@ -44,7 +51,7 @@
             {{ $post->user->username}}
           </div>
           <div>
-            {{ $post->updated_at}}
+            {{ date("Y-m-d H:i",strtotime($post->updated_at))}}
           </div>
         </div>
         <div>

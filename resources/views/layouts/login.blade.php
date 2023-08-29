@@ -42,20 +42,28 @@
 
             <li>
                 <!-- アコーディオンメニュー -->
-                <div id="accordion" class="accordion-container">
-
-                    <h4 class="accordion-title js-accordion-title">メニュー</h4>
+                <div class="accordion-item">
+                    <h3 class="accordion-title js-accordion-title">
+                    </h3>
+                    <!--/.accordion-title-->
                     <div class="accordion-content">
                         <p><a href="{{ asset('/top') }}">HOME</a></p>
                         <p><a href="{{ asset('/profile/update') }}">プロフィール編集</a></p>
                         <p><a href="{{ asset('/logout') }}">ログアウト</a></p>
                     </div>
-
+                    <!--/.accordion-content-->
                 </div>
+                <!-- /.accordion-item -->
             </li>
 
             <!-- ログインユーザーのアイコン -->
-            <li><img src="{{ asset('storage/images/'.auth::user() ->images) }}"></li>
+            <!-- もしデフォルトのアイコンだった場合 -->
+            @if(auth::user() -> images == 'icon1.png' )
+            <li class="header-icon"><img src="{{ asset('images/'.auth::user() ->images) }}"></li>
+            <!-- public/images -->
+            @else
+            <li class="header-icon"><img src="{{ asset('storage/images/'.auth::user() ->images) }}"></li>
+            @endif
         </ul>
     </header>
 
@@ -74,9 +82,10 @@
 
         <!-- 右側 -->
         <div id="side-bar">
+
             <div id="confirm">
                 <div class="side-top">
-                  <p class="side-username"> {{ Auth::user() -> username }} さんの</p>
+                    <p class="side-username"> {{ Auth::user() -> username }} さんの</p>
                 </div>
 
 
@@ -95,7 +104,6 @@
                 <div class="side-right">
                     <p class="btn btn_base"><a href="{{ asset('/followerList') }}">フォロワーリスト</a></p>
                 </div>
-
             </div>
 
             <div class="side-search_btn">

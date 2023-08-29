@@ -62,10 +62,15 @@ Route::group(['middleware' => 'auth'], function (){ //アクセス制限をか�
 
 /////////////////////プロフィール///////////////////////////////////////////////////////////////////
 
- //プロフィール画面 作成中
+ //自分のプロフィール編集画面
    Route::get('/profile/update', 'UsersController@profileupdate');
 
-   //フォローリストのアイコンをクリックしたらプロフィール画面に飛ぶ。
+ //プロフィール更新ボタンを押したら、、（作成中）
+   Route::post('/user/profile/update', 'UsersController@update');
+
+
+
+   //フォローリストのアイコンをクリックしたらそのユーザーのプロフィール画面に飛ぶ。
    Route::get('/profile/{id}/view', 'UsersController@profile')->name('profile.index');
 
  //フォロー解除するボタンを押した時
