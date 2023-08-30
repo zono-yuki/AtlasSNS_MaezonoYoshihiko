@@ -234,11 +234,12 @@ button{
   height: auto;
   border-radius:15px;
   cursor:pointer;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
-/* ホバーしたら、色が変わる？変わらないから聞く。 */
+
 .submit_btn:hover{
-  background: #fff;
+  background: blueviolet;
+  opacity: .5;
 }
 
 .flex-post img{

@@ -25,7 +25,7 @@ class FollowsController extends Controller
         //取得できている。
 
         //Postモデル(postsテーブル)からpostsテーブルのuser_idと$following_idが同じ投稿を新しい順で取得する。(カラム名,条件)②これをviewに送る
-        $posts = Post::with('user')->whereIn('user_id',$following_id)->latest()->get();
+        $posts = Post::with('user')->whereIn('user_id',$following_id)->latest('updated_at')->get();
         // dd($posts);
         //取得できていない。
         return view('follows.followList', ['posts' => $posts, 'follows' => $follows]);
@@ -44,7 +44,7 @@ class FollowsController extends Controller
         //取得できている。
 
         //Postモデル(postsテーブル)からpostsテーブルのuser_idと$followering_idが同じ投稿を新しい順で取得する。(カラム名,条件)②これをviewに送る
-        $posts = Post::with('user')->whereIn('user_id', $followering_id)->latest()->get();
+        $posts = Post::with('user')->whereIn('user_id', $followering_id)->latest('updated_at')->get();
         // dd($posts);
         //取得できていない。
         return view('follows.followerList', ['posts' => $posts, 'followers' => $followers]);

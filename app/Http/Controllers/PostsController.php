@@ -26,7 +26,7 @@ class PostsController extends Controller
         //ログインユーザーがフォローしているユーザーのidを取得して投稿を取得する&ログインユーザーの投稿を取得する。
         $following_id = Auth::user()->follows()->pluck('followed_id');
         // dd($following_id);
-        $posts = Post::with('user')->WhereIn('user_id', $following_id)->orWhere('user_id', $user->id)->latest()->get();
+        $posts = Post::with('user')->WhereIn('user_id', $following_id)->orWhere('user_id', $user->id)->latest('updated_at')->get();
 
         //新しい順に表示するために並び替える
         // $posts = Post::orderBy('updated_at','desc')->get();

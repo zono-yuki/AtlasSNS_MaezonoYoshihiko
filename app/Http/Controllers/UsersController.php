@@ -64,7 +64,7 @@ class UsersController extends Controller
         $users = User::where('id', $user_Id)->first();
         // dd($users);
         //リンク元ユーザーのidを元に投稿内容を取得する
-        $posts = Post::with('user')->Where('user_id', $user_Id)->latest()->get();
+        $posts = Post::with('user')->Where('user_id', $user_Id)->latest('updated_at')->get();
         // dd($posts);
 
 
