@@ -51,7 +51,9 @@ header li a:hover{
 .header-icon{
   margin-top: 30px;
 }
-
+.login-form{
+  min-height: 100%;
+}
 .login-name{
   color: #fff;
   position: relative;
@@ -236,7 +238,7 @@ button{
 }
 /* ホバーしたら、色が変わる？変わらないから聞く。 */
 .submit_btn:hover{
-  background: #727272;
+  background: #fff;
 }
 
 .flex-post img{
@@ -254,9 +256,14 @@ button{
 }
 /* 投稿編集ボタン */
 .post_btn1{
+  background: #fff;
   width:47px;
   height: auto;
   cursor:pointer;
+}
+
+#openModal{
+  background: #fff;
 }
 
 /* 投稿削除ボタン */
@@ -309,22 +316,27 @@ ul{
   display: none;
   position: fixed;
   z-index: 1;
+  left: 0;
+  top: 0;
   padding-top: 100px;
   width: 100%;
   height: 100%;
+  over-flow: auto;
   background-color: rgba(0,0,0,0.4);
 }
 
 .modal-content {
   text-align: center;
-  margin: auto;
+  margin-top: 300px;
+  margin-left: 120px;
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+  resize: none;
   background-color: #fff;
   border-radius: 20px;
   box-shadow: 0 4px 16px 0 rgba(0,0,0,0.2);
-  background-color: #457b9d;
+  background-color: #fff;
   color: white;
 }
 

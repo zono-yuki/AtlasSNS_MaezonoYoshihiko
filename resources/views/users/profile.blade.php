@@ -69,7 +69,7 @@
               <!-- ユーザー名はpostsテーブルとusersテーブルをリレーションで紐づけてから持ってくる？ -->
             </div>
             <div>
-              {{ $post-> updated_at }}
+              {{ date("Y-m-d H:i",strtotime($post->updated_at))}}
             </div>
           </div>
           <div>

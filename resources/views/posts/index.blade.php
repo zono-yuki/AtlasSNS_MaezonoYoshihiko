@@ -107,5 +107,27 @@
 <!-- /////////////////////////// -->
 
 <!-- formを作る、ルート、コントローラーまで完成済み -->
+<div id="myModal" class="modal">
+   <div class="modal-content">
+      <!-- 閉じるボタン -->
+      <span id="closeModal">閉じる</span>
 
+      <!-- モーダルエリア -->
+      {!! Form::open(['url' => '/post/{id}/update']) !!}
+      <!-- 追加 -->
+      <!-- jsでこのupdate_idに$post->idのvalueが入っている。 -->
+      <input type="hidden" name="id" value="" id="update_id">
+      <textarea class="modal-text" name="post" id="textarea_id" value="" cols="50" rows="10"></textarea>
+      <!-- ↑ここにもともとの入れたい。 -->
+
+      <!-- 更新ボタン -->
+      <button id="openModal">
+         <input type="image" src="{{asset('storage/images/edit.png')}}" class="post_btn1" alt="更新ボタン">
+      </button>
+
+      {!! Form::close() !!}
+
+
+   </div>
+</div>
 @endsection

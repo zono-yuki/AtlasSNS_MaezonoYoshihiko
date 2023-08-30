@@ -1,11 +1,13 @@
 @charset "UTF-8";
 
 html{
-    height: 100%;
+    width: 100%;
+    min-height:100%;
 }
 
 body{
-    height: 100%;
+    width: 100%;
+    min-height: 100%;
     /* 縦方向  背景を上から下にグラデーション */
     /* background: -moz-linear-gradient(top, #FFC778, #FFF);
     background: -webkit-linear-gradient(top, #FFC778, #FFF);
@@ -61,7 +63,7 @@ header p{
 /* ログインフォーム全体 */
 .login-form{
     width:45%;
-    height: auto;
+    height: min-height;
     margin: 0 auto;
     border-radius: 20px;
     margin-top: 30px;
@@ -77,7 +79,7 @@ header p{
 /* ログインフォーム全体② */
 .box{
     width:100%;
-    height:auto;
+    min-height: 100%;
     margin: 0 auto;
     text-align: center;
     border-radius: 15px;
@@ -108,6 +110,15 @@ header p{
     border-radius: 10px;
     font-size: 20px;
 
+}
+
+.password{
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    width:250px;
+    border-radius: 10px;
+    font-size: 20px;
 }
 /* ログインボタン */
 .login-btn{

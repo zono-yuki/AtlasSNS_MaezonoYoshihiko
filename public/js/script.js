@@ -20,7 +20,7 @@ $(".openModal").each(function () {//$(".openModal")これだけで上と同じ�
     $('#update_id').val(post_id);//idを受け取る、idをhiddenでcontllorerに渡す。
 
     var post = $(this).attr('post');
-    $('#textarea_id').text(post);//投稿している内容を引っ張ってきて表示する
+    $('#textarea_id').text(post);//投稿している内容を引っ張ってきて表示するtext
 
     modal.style.display = "block";//モーダルを表示する
     return false;
