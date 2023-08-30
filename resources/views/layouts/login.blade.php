@@ -47,9 +47,9 @@
                     </h3>
                     <!--/.accordion-title-->
                     <div class="accordion-content">
-                        <p><a href="{{ asset('/top') }}">HOME</a></p>
-                        <p><a href="{{ asset('/profile/update') }}">プロフィール編集</a></p>
-                        <p><a href="{{ asset('/logout') }}">ログアウト</a></p>
+                        <p><a class ="accordion-list" href="{{ asset('/top') }}">HOME</a></p>
+                        <p><a class ="accordion-list" href="{{ asset('/profile/update') }}">プロフィール編集</a></p>
+                        <p><a class ="accordion-list" href="{{ asset('/logout') }}">ログアウト</a></p>
                     </div>
                     <!--/.accordion-content-->
                 </div>
@@ -57,7 +57,7 @@
             </li>
 
             <!-- ログインユーザーのアイコン -->
-            <!-- もしデフォルトのアイコンだった場合 -->
+            <!-- もしデフォルト(icon1)のアイコンだった場合 -->
             @if(auth::user() -> images == 'icon1.png' )
             <a href="/profile/{{ auth::user()->id}}/view">
                 <li class="header-icon"><img src="{{ asset('images/'.auth::user() ->images) }}"></li>

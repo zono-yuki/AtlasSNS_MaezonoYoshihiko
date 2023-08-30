@@ -63,15 +63,15 @@ header li a:hover{
     /* flex-flow: row wrap; */
 }
 #container{
-    flex: 0 0 80%;
-    width: 100%;
+    /* flex: 0 0 80%; */
+    width: 80%;
     min-height: 100vh;
 }
 #side-bar{
-    flex: 0 0 19%;
+    /* flex: 0 0 19%; */
     border-left: 1px solid #727272;
     min-height:100vh;
-    width: 30%;
+    width: 20%;
 }
 
 #confirm{
@@ -225,7 +225,9 @@ button{
 
 /* つぶやき送信ボタン */
 .submit_btn{
+  display: inline-block;
   margin-top: 80px;
+  margin-right: 80px;
   width: 60px;
   height: auto;
   border-radius:15px;
