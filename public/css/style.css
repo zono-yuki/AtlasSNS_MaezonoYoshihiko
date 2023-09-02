@@ -151,8 +151,8 @@ button{
   display: none;
   position: absolute;
   padding:0;
-  width: 390px;
-  height: auto;
+  width: 380px;
+  height: 270px;
   background: #fff;
   top:73px;
   left: -210px;
@@ -162,13 +162,14 @@ button{
 .accordion-content p {
   font-size: 30px;
   display: inline-block;
-  height: 80px;
-  padding-top:30px;
+  width: 380px;
+  height: 90px;
+  line-height: 90px;
   vertical-align: middle;
 }
 
 .accordion-content a:hover{
-  background: red;
+  background: blue;
   text-decoration: none;
   color: #fff;
 }
@@ -177,6 +178,8 @@ button{
   display: inline-block;
   color: gray;
   width:380px;
+  height: 94px;
+  line-height: 94px;
   vertical-align: middle;
   text-decoration: none;
   /* padding: 40px; */
