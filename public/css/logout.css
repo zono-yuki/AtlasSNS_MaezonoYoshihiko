@@ -58,6 +58,11 @@ header p{
 
 }
 
+.error-font{
+    margin-top: 10px;
+    text-align: center;
+    color: red;
+}
 
 
 /* ログインフォーム全体 */
@@ -110,6 +115,15 @@ header p{
     border-radius: 10px;
     font-size: 20px;
 
+}
+
+#password{
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    width:250px;
+    border-radius: 10px;
+    font-size: 20px;
 }
 
 .password{

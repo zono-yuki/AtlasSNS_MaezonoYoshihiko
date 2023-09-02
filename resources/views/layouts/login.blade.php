@@ -30,7 +30,7 @@
         <!-- Atlasロゴ -->
         <p class="logo">
             <a href="/top">
-                <img class="atlas_logo" src="{{ asset('storage/images/atlas.png') }}">
+                <img class="atlas_logo" src="{{ asset('images/atlas.png') }}">
             </a>
         </p>
 

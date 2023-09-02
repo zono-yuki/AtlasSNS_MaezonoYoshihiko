@@ -3,16 +3,7 @@
 @section('content')
 
 
-<!-- バリデーションメッセージ -->
-@if ($errors->any())
-<div class="register_error">
-   <ul>
-      @foreach ($errors->all() as $error)
-      <li>{{ $error }}</li>
-      @endforeach
-   </ul>
-</div>
-@endif
+
 
 
 @section('content')
@@ -21,6 +12,17 @@
    {!! Form::open(['url' => '/register']) !!}
 
    <p class="hello">新規ユーザー登録</p>
+
+   <!-- バリデーションメッセージ -->
+   @if ($errors->any())
+   <div class="register_error">
+      <ul>
+         @foreach ($errors->all() as $error)
+         <li class="error-font">{{ $error }}</li>
+         @endforeach
+      </ul>
+   </div>
+   @endif
 
    <div class="box">
 
@@ -44,7 +46,7 @@
       <div class="set">
          {{ Form::label('password','password',['class' => 'login'])  }}
          <br>
-         {{ Form::text('password',null,['class' => 'password']) }}
+         {{ Form::password('password',null,['class' => 'password']) }}
          <br>
       </div>
 
@@ -52,7 +54,8 @@
       <div class="set">
          {{ Form::label('password','password confirm',['class' => 'login'])  }}
          <br>
-         {{ Form::text('password_confirmation',null,['class' => 'password']) }}
+
+         {{ Form::password('password_confirmation',null,['class' => 'password']) }}
          <br>
       </div>
 

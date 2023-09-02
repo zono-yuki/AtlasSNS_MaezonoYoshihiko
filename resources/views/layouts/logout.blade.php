@@ -28,7 +28,7 @@
 <body>
 
     <header>
-      <h1><img src="{{ asset('storage/images/atlas.png') }}"></h1>
+      <h1><img src="{{ asset('images/atlas.png') }}"></h1>
       <p>Social Network Service</p>
     </header>
 
