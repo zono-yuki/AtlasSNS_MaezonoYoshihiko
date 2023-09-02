@@ -46,7 +46,7 @@
       <div class="set">
          {{ Form::label('password','password',['class' => 'login'])  }}
          <br>
-         {{ Form::password('password',null,['class' => 'password']) }}
+         {{ Form::password('password',['class' => 'password']) }}
          <br>
       </div>
 
@@ -55,7 +55,8 @@
          {{ Form::label('password','password confirm',['class' => 'login'])  }}
          <br>
 
-         {{ Form::password('password_confirmation',null,['class' => 'password']) }}
+         {{ Form::password('password_confirmation',['class' => 'password']) }}
+
          <br>
       </div>
 

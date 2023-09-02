@@ -7,14 +7,13 @@
 <div class="register_error">
    <ul>
       @foreach ($errors->all() as $error)
-      <li>{{ $error }}</li>
+      <li class="error-message-profile">{{ $error }}</li>
       @endforeach
    </ul>
 </div>
 @endif
 
 <!-- プロフィール編集の入力フォーム -->
-  <!-- {!! Form ::open(['url' => '/profile/update']) !!} -->
 
   <form class="" action="{{ url('/user/profile/update') }}" method="POST" enctype="multipart/form-data">
    @csrf

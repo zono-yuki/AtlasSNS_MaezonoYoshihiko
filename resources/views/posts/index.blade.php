@@ -8,7 +8,7 @@
 <div class="register_error">
    <ul>
       @foreach ($errors->all() as $error)
-      <li>{{ $error }}</li>
+      <li class="error-message">{{ $error }}</li>
       @endforeach
    </ul>
 </div>

@@ -61,7 +61,15 @@ class UserFormRequest extends FormRequest
             'password.max' => 'パスワードは20文字以下で入力して下さい。',
             'password.confirmed' => 'パスワードが一致しません。',
 
-            'bio.max' => '自己紹介は150文字以下で入力してください。',
+            'password_confirmation.required' => 'パスワード(確認)は入力必須です。',
+            'password_confirmation.regex' => 'パスワード(確認)は英数字のみで入力して下さい。',
+            'password_confirmation.min' => 'パスワード(確認)は8文字以上で入力して下さい。',
+            'password_confirmation.max' => 'パスワード(確認)は20文字以下で入力して下さい。',
+            'password_confirmation.confirmed' => 'パスワード(確認)が一致しません。',
+
+            'password_confirmation.max' => '自己紹介は150文字以下で入力してください。',
+
+            'bio.required' => '自己紹介は入力必須です。',
 
             //アイコンの画像などのエラーメッセージを入れる。（画像(jpg、png、bmp、gif、svg)ファイル以外は不可）
         ];
