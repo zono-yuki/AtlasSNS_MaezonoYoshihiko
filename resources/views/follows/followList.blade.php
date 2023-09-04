@@ -37,12 +37,22 @@
     <li class="post-block">
 
       <!-- アイコン表示 -->
+
+
+      @if($post->user-> images == 'icon1.png' )
+      <figure>
+        <a href="/profile/{{ $post->user->id}}/view">
+          <img class="top-img" src="{{ asset('images/'.$post->user->images)}}" alt="アイコン">
+        </a>
+      </figure>
+      @else
+      <!-- icon1でなければ、 -->
       <figure>
         <a href="/profile/{{ $post->user->id}}/view">
           <img class="top-img" src="{{ asset('storage/images/'.$post->user->images)}}" alt="アイコン">
         </a>
       </figure>
-
+      @endif
 
       <!-- 投稿表示 -->
       <div class="post-content">

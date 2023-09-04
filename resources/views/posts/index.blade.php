@@ -20,7 +20,7 @@
 
 <div class="flex-post">
 
-
+<!-- アイコン -->
    @if($user -> images == 'icon1.png' )
    <a href="/profile/{{ $user->id}}/view">
       <img src="{{ asset('images/'.$user-> images) }}">
@@ -49,11 +49,22 @@
 <div>
    <ul>
       <li class="post-block">
+
+         <!-- アイコン -->
+         @if( $post->user->images == 'icon1.png' )
+         <figure>
+            <a href="/profile/{{ $post->user->id}}/view">
+               <img class="top-img" src="{{ asset('images/'.$post-> user ->images)}}" alt="アイコン">
+            </a>
+         </figure>
+         @else
+         <!-- icon1でなければ、 -->
          <figure>
             <a href="/profile/{{ $post->user->id}}/view">
                <img class="top-img" src="{{ asset('storage/images/'.$post-> user ->images)}}" alt="アイコン">
             </a>
          </figure>
+         @endif
 
          <div class="post-content">
             <div>
@@ -122,7 +133,7 @@
 
       <!-- 更新ボタン -->
       <button id="openModal">
-         <input type="image" src="{{asset('storage/images/edit.png')}}" class="post_btn1" alt="更新ボタン">
+         <input type="image" src="{{asset('images/edit.png')}}" class="post_btn1" alt="更新ボタン">
       </button>
 
       {!! Form::close() !!}

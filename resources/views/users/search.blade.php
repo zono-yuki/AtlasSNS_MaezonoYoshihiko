@@ -44,11 +44,22 @@
   <ul class="search-users">
 
     <!-- 登録者アイコン -->
+    @if($users -> images == 'icon1.png' )
+    <li class="search-icon">
+      <a href="/profile/{{ $users->id}}/view">
+        <img src="{{ asset('images/'.$users->images) }}" alt="ユーザーアイコン">
+      </a>
+    </li>
+    @else
+    <!-- icon1でなければ、 -->
     <li class="search-icon">
       <a href="/profile/{{ $users->id}}/view">
         <img src="{{ asset('storage/images/'.$users->images) }}" alt="ユーザーアイコン">
       </a>
     </li>
+    @endif
+
+
     <!-- 登録者名 -->
     <li class="search-name">{{$users->username}}</li>
 

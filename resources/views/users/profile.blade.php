@@ -9,9 +9,23 @@
 
     <!-- アイコン表示 とりあえず、icon1.pngを表示-->
 
-    <figure>
-      <img class="top-img" src="{{ asset('storage/images/'.$users->images)}}" alt="アイコン">
-    </figure>
+
+    @if( $users->images == 'icon1.png' )
+
+    <a href="/profile/{{ $users->id}}/view">
+      <figure>
+        <img class="top-img" src="{{ asset('images/'.$users->images)}}" alt="アイコン">
+      </figure>
+    </a>
+
+    @else
+    <!-- icon1でなければ、 -->
+    <a href="/profile/{{ $users->id}}/view">
+      <figure>
+        <img class="top-img" src="{{ asset('storage/images/'.$users->images)}}" alt="アイコン">
+      </figure>
+    </a>
+    @endif
 
     <div class="content-flex">
       <div class="name-flex">
@@ -56,11 +70,22 @@
   <div>
     <ul>
       <li class="post-block-profile">
+
+        <!-- アイコン -->
+        @if( $post->user->images == 'icon1.png' )
+        <figure>
+          <a href="/profile/{{ $post->user->id}}/view">
+            <img class="top-img" src="{{ asset('images/'.$post-> user ->images)}}" alt="アイコン">
+          </a>
+        </figure>
+        @else
+        <!-- icon1でなければ、 -->
         <figure>
           <a href="/profile/{{ $post->user->id}}/view">
             <img class="top-img" src="{{ asset('storage/images/'.$post-> user ->images)}}" alt="アイコン">
           </a>
         </figure>
+        @endif
 
         <div class="post-content">
           <div>
