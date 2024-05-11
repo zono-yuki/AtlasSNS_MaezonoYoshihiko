@@ -38,7 +38,7 @@
 
   @foreach($users as $users)
 
-  <!-- もしログインユーザーと少しでも一致したユーザが同じでなければ入る。 -->
+  <!-- ログインユーザー以外を表示する-->
   @if(!($user-> username == $users->username))
 
   <ul class="search-users">
@@ -68,6 +68,7 @@
 
     <!-- もしログインユーザーがフォローしていたらフォロー解除ボタンを表示する -->
     <!-- isFollowingメソッドにフォローしているか判定-->
+    <!--相手のidをフォローしているか確認するために、送る-->
     @if (auth()->user()->isFollowing($users->id))
     <li class="unfollow_btn">
       <button type="submit" class="btn unfollow">

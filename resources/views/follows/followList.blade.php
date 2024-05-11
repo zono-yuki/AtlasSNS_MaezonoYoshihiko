@@ -12,6 +12,7 @@
   <!-- アイコンが多くなったら折り返して表示する。 -->
   <div class="max-row">
     @foreach ($follows as $follow)
+    <!-- フォローしている人を繰り返し表示する。 -->
     <div class="max-row">
       <!-- アイコンひとまとめ -->
       <figure class="follow_icon">

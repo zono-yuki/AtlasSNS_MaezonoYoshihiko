@@ -15,35 +15,32 @@ class FollowsController extends Controller
     //フォローリストの画面を表示する。フォローしている人のアイコンと、投稿を表示する。
 
     public function followList(){
-        //ログインユーザーがフォローしている人を全部表示する、①これをviewに送る。
+        //ログインユーザーがフォローしているレコードを全部取得する、①これをviewに送る。
         $follows = Auth::user()->follows()->get();
 
         //フォローしている人のidを取得する。（pluck）
         $following_id = Auth::user()->follows()->pluck('followed_id');
 
-        // dd($following_id);
-        //取得できている。
-
-        //Postモデル(postsテーブル)からpostsテーブルのuser_idと$following_idが同じ投稿を新しい順で取得する。(カラム名,条件)②これをviewに送る
+        //自分がフォーローしているユーザーの投稿を新しい順（降順）で全部取得する。
+        //②これをviewに送る
         $posts = Post::with('user')->whereIn('user_id',$following_id)->latest('updated_at')->get();
-        // dd($posts);
-        //取得できていない。
+        //フォローリストを表示する。
         return view('follows.followList', ['posts' => $posts, 'follows' => $follows]);
     }
 
     public function followerList(){
         //フォローワーリストの画面を表示する。フォローされている人のアイコンと、投稿を表示する。
-
-
+        // まず、中間テーブルから自分をフォローしてくれているレコードを全部抽出する。（①アイコンの表示で使います。）
         $followers = Auth::user()->follower()->get();
         // dd($followers);
-        //フォローされている人のidを取得する。（pluck）
+        //自分をフォローしてくれている人（フォロワーさん）のidを取り出す。
         $followering_id = Auth::user()->follower()->pluck('following_id');
 
         // dd($followering_id);
         //取得できている。
 
-        //Postモデル(postsテーブル)からpostsテーブルのuser_idと$followering_idが同じ投稿を新しい順で取得する。(カラム名,条件)②これをviewに送る
+        // フォロワーさんの投稿を取得する。Postモデル(postsテーブル)からpostsテーブルのuser_idと$followering_idが同じ投稿を新しい順で取得する。
+        // ②これをviewに送る
         $posts = Post::with('user')->whereIn('user_id', $followering_id)->latest('updated_at')->get();
         // dd($posts);
         //取得できていない。
@@ -72,7 +69,7 @@ class FollowsController extends Controller
                 ['following_id', '=', $loggedInUserId], //自分のID
                 ['followed_id', '=', $followedUserId],//自分がフォローしている相手のID
             ])
-                ->delete();
+                ->delete();//削除
         }
         return redirect('/search');
     }
@@ -93,7 +90,7 @@ class FollowsController extends Controller
             $followedUserId = $followedUser->id;//その情報からidを取得する。
 
             // フォローデータをデータベースに登録
-            Follow::create([
+            Follow::create([//登録
                 'following_id' => $loggedInUserId,//自分のIDを登録する。
                 'followed_id' => $followedUserId,//フォローする相手のIDを登録する。
             ]);

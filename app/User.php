@@ -42,18 +42,18 @@ class User extends Authenticatable
     public function follows()
     {
         return $this->belongsToMany('App\User', 'follows', 'following_id', 'followed_id');
-        //ログインユーザーのID,フォローしている相手のID
+        //ログインユーザーのID,フォローしている相手のID//左側には自分のidが絶対入る。
     }
 
     public function follower()
     {
         return $this->belongsToMany('App\User', 'follows', 'followed_id', 'following_id');
-        //自分をフォローしている人のID,ログインユーザーのID
+        //自分をフォローしている人のID,ログインユーザーのID//左側には自分のidが絶対入る。
     }
 
 ////////////////////////////////////////////////////////////////////////////////////
     // $user_Idさんをフォローしているか確認する
-    public function isFollowing(Int $user_Id)
+    public function isFollowing(Int $user_Id)//$user_Idは相手のid
     {
         return (bool) $this->follows()->where('followed_id', $user_Id)->first();
         // ログインユーザーがフォローしているユーザーさんを探す。
